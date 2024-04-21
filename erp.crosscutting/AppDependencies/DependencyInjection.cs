@@ -11,7 +11,7 @@ public static class DependencyInjection
 {
     public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
     {
-        var mySqlConnection = configuration.GetConnectionString("DefaultConnection");
+        var mySqlConnection = "Server=localhost;DataBase=erp;Uid=root;Pwd=root";// configuration.GetConnectionString("DefaultConnection");
 
         services.AddDbContext<AppDbContext>(options =>
             options.UseMySql(mySqlConnection, ServerVersion.AutoDetect(mySqlConnection))
@@ -19,6 +19,9 @@ public static class DependencyInjection
 
         services.AddScoped<IProductRepository, ProductRepository>();
         services.AddScoped<IUnitOfWork, UnitOfWork>();
+
+        var myhandlers = AppDomain.CurrentDomain.Load("erp.Application");
+        services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(myhandlers));
         return services;
     }
 }

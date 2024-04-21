@@ -1,3 +1,4 @@
+using erp.api.Filters;
 using erp.crosscutting.AppDependencies;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,6 +12,7 @@ builder.Services.AddSwaggerGen();
 
 //registro dos serviços
 builder.Services.AddInfrastructure(builder.Configuration);
+builder.Services.AddMvc(o => o.Filters.Add(new CustomExceptionFilter()));
 
 var app = builder.Build();
 
