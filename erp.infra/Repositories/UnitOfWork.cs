@@ -6,6 +6,7 @@ namespace erp.infra.Repositories;
 public class UnitOfWork : IUnitOfWork, IDisposable
 {
     private IProductRepository? _productRepo;
+    private IStockMovementRepository? _stockMovementRepository;
     private readonly AppDbContext _context;
 
     public UnitOfWork(AppDbContext context)
@@ -19,6 +20,14 @@ public class UnitOfWork : IUnitOfWork, IDisposable
         get
         {
             return _productRepo = _productRepo ?? new ProductRepository(_context);
+        }
+    }
+
+    public IStockMovementRepository StockMovementRepository
+    {
+        get
+        {
+            return _stockMovementRepository = _stockMovementRepository ?? new StockMovementRepository(_context);
         }
     }
 

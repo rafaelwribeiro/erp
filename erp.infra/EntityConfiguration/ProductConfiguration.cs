@@ -10,7 +10,7 @@ public class ProductConfiguration : IEntityTypeConfiguration<Product>
     {
         builder.HasKey(p => p.Id);
         builder.Property(p => p.Name).HasMaxLength(100).IsRequired();
-        builder.Property(p => p.Price).HasDefaultValue(0).IsRequired();
+        builder.Property(p => p.Price).HasDefaultValue(0).HasColumnType("DECIMAL(10,4)").IsRequired();
         builder.Property(p => p.StockQuantity).HasDefaultValue(0).IsRequired();
     }
 }

@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace erp.application.Commands.DeleteCommand;
+namespace erp.application.Commands.DeleteProduct;
 
 public class DeleteProductCommand : IRequest
 {

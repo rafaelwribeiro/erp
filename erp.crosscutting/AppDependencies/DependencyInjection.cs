@@ -9,7 +9,7 @@ namespace erp.crosscutting.AppDependencies;
 
 public static class DependencyInjection
 {
-    public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
+    public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration? configuration)
     {
         var mySqlConnection = "Server=localhost;DataBase=erp;Uid=root;Pwd=root";// configuration.GetConnectionString("DefaultConnection");
 
@@ -18,6 +18,7 @@ public static class DependencyInjection
         );
 
         services.AddScoped<IProductRepository, ProductRepository>();
+        services.AddScoped<IStockMovementRepository, StockMovementRepository>();
         services.AddScoped<IUnitOfWork, UnitOfWork>();
 
         var myhandlers = AppDomain.CurrentDomain.Load("erp.Application");

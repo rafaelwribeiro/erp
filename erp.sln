@@ -13,7 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "erp.crosscutting", "erp.cro
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "erp.infra", "erp.infra\erp.infra.csproj", "{7A367AA8-FEA7-4E62-B7F1-B5032A5CFAB5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "erp.console", "erp.console\erp.console.csproj", "{620499EF-0CC2-48D9-A4C1-D37ADF96D65C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "erp.console", "erp.console\erp.console.csproj", "{620499EF-0CC2-48D9-A4C1-D37ADF96D65C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "erp.desktopApp", "erp.desktopApp\erp.desktopApp.csproj", "{63B98F2F-DF2A-443B-B235-A0C5FFA2B351}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{620499EF-0CC2-48D9-A4C1-D37ADF96D65C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{620499EF-0CC2-48D9-A4C1-D37ADF96D65C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{620499EF-0CC2-48D9-A4C1-D37ADF96D65C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{63B98F2F-DF2A-443B-B235-A0C5FFA2B351}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{63B98F2F-DF2A-443B-B235-A0C5FFA2B351}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{63B98F2F-DF2A-443B-B235-A0C5FFA2B351}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{63B98F2F-DF2A-443B-B235-A0C5FFA2B351}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

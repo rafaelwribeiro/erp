@@ -11,11 +11,14 @@ public class AppDbContext : DbContext
         
     }
 
+
     public DbSet<Product> Products {get; set; }
+    public DbSet<StockMovement> StockMovements { get; set; }
 
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
         builder.ApplyConfiguration(new ProductConfiguration());
+        builder.ApplyConfiguration(new StockMovementConfiguration());
     }
 }

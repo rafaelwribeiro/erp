@@ -1,5 +1,5 @@
 using erp.application.Commands.CreateProduct;
-using erp.application.Commands.DeleteCommand;
+using erp.application.Commands.DeleteProduct;
 using erp.application.Commands.UpdateProduct;
 using erp.application.Queries.GetProduct;
 using erp.application.Queries.ListProducts;
