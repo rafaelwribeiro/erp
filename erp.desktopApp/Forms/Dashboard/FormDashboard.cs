@@ -15,13 +15,19 @@ public partial class FormDashboard : Form
 
     private async void button1_Click(object sender, EventArgs e)
     {
-        var command = new CreateProductCommand
+        try
         {
-            Name = "Teste",
-            Price = 9.50m
-        };
+            var command = new CreateProductCommand
+            {
+                Name = "Teste",
+                Price = 9.50m
+            };
 
-        var product = await _mediator.Send(command);
-        label1.Text = $"{product.Id} - {product.Name}";
+            var product = await _mediator.Send(command);
+            label1.Text = $"{product.Id} - {product.Name}";
+        } catch (Exception ex)
+        {
+            MessageBox.Show(ex.Message);
+        }
     }
 }
