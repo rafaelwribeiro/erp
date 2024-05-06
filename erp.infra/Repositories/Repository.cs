@@ -50,6 +50,11 @@ public class Repository<T> : IRepository<T> where T : class
         return await _db.Set<T>().AsNoTracking().Where(filter).ToListAsync();
     }
 
+    public async Task<bool> AnyByFilter(Expression<Func<T, bool>> filter)
+    {
+        return await _db.Set<T>().AsNoTracking().Where(filter).AnyAsync();
+    }
+
     public void Update(T entity)
     {
         if (entity is null)

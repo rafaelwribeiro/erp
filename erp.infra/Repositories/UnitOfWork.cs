@@ -7,6 +7,7 @@ public class UnitOfWork : IUnitOfWork, IDisposable
 {
     private IProductRepository? _productRepo;
     private IStockMovementRepository? _stockMovementRepository;
+    private IUserRepository? _userRepository;
     private readonly AppDbContext _context;
 
     public UnitOfWork(AppDbContext context)
@@ -28,6 +29,14 @@ public class UnitOfWork : IUnitOfWork, IDisposable
         get
         {
             return _stockMovementRepository = _stockMovementRepository ?? new StockMovementRepository(_context);
+        }
+    }
+    
+    public IUserRepository UserRepository
+    {
+        get
+        {
+            return _userRepository = _userRepository ?? new UserRepository(_context);
         }
     }
 

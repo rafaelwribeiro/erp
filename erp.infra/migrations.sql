@@ -43,3 +43,27 @@ VALUES ('20240501160509_20240501.001', '7.0.2');
 
 COMMIT;
 
+START TRANSACTION;
+
+ALTER TABLE `StockMovements` ADD `UpdatedAt` datetime(6) NOT NULL DEFAULT '0001-01-01 00:00:00';
+
+ALTER TABLE `Products` ADD `CreatedAt` datetime(6) NOT NULL DEFAULT '0001-01-01 00:00:00';
+
+ALTER TABLE `Products` ADD `UpdatedAt` datetime(6) NOT NULL DEFAULT '0001-01-01 00:00:00';
+
+CREATE TABLE `Users` (
+    `Id` int NOT NULL AUTO_INCREMENT,
+    `Username` varchar(100) CHARACTER SET utf8mb4 NOT NULL,
+    `Password` varchar(100) CHARACTER SET utf8mb4 NOT NULL,
+    `CreatedAt` datetime(6) NOT NULL,
+    `UpdatedAt` datetime(6) NOT NULL,
+    CONSTRAINT `PK_Users` PRIMARY KEY (`Id`)
+) CHARACTER SET=utf8mb4;
+
+CREATE UNIQUE INDEX `IX_Users_Username` ON `Users` (`Username`);
+
+INSERT INTO `__EFMigrationsHistory` (`MigrationId`, `ProductVersion`)
+VALUES ('20240504220735_20240504.001', '7.0.2');
+
+COMMIT;
+
