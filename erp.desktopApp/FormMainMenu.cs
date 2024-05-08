@@ -3,6 +3,7 @@ using FontAwesome.Sharp;
 using System.Runtime.InteropServices;
 using Microsoft.Extensions.DependencyInjection;
 using erp.desktopApp.Forms.Dashboard;
+using erp.desktopApp.Forms.Login;
 
 namespace erp.desktopApp;
 
@@ -26,17 +27,10 @@ public partial class FormMainMenu : Form
         this.ControlBox = false;
         this.DoubleBuffered = true;
         this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
-        Setup();
-    }
 
-    private void Setup()
-    {
-        var serviceCollection = new ServiceCollection();
-        serviceCollection.AddInfrastructure(null);
-        //serviceCollection.AddTransient<FormMainMenu>();
-        serviceCollection.AddTransient<FormDashboard>();
+        serviceProvider = ServiceProviderStatic.GetServiceProvider();
 
-        serviceProvider = serviceCollection.BuildServiceProvider();
+        this.Visible = false;
     }
 
     //Structs
@@ -172,5 +166,16 @@ public partial class FormMainMenu : Form
     private void btnMinimize_Click(object sender, EventArgs e)
     {
         WindowState = FormWindowState.Minimized;
+    }
+
+    private void FormMainMenu_Activated(object sender, EventArgs e)
+    {
+        if (GlobalInfo.GetCurrentUser() is null)
+        {
+            this.Hide();
+            var form = serviceProvider.GetRequiredService<FormLogin>();
+            if(form.ShowDialog(this) == DialogResult.OK)
+                this.Show();
+        }
     }
 }

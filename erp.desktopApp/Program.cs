@@ -1,3 +1,6 @@
+using erp.desktopApp.Forms.Login;
+using Microsoft.Extensions.DependencyInjection;
+
 namespace erp.desktopApp;
 
 internal static class Program
@@ -13,7 +16,11 @@ internal static class Program
         try
         {
             ApplicationConfiguration.Initialize();
-            Application.Run(new FormMainMenu());
+            ServiceProviderStatic.Setup();
+            var sp = ServiceProviderStatic.GetServiceProvider();
+            var login = sp.GetRequiredService<FormLogin>();
+            if(login.ShowDialog()==DialogResult.OK)
+                Application.Run(new FormMainMenu());
         } catch (Exception ex)
         {
             MessageBox.Show(ex.Message);

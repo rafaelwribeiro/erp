@@ -11,7 +11,8 @@ public static class DependencyInjection
 {
     public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration? configuration)
     {
-        var mySqlConnection = "Server=localhost;DataBase=erp;Uid=root;Pwd=root";// configuration.GetConnectionString("DefaultConnection");
+        var mySqlConnection = configuration?.GetConnectionString("DefaultConnection")
+                              ?? "Server=localhost;DataBase=erp;Uid=root;Pwd=root";
 
         services.AddDbContext<AppDbContext>(options =>
             options.UseMySql(mySqlConnection, ServerVersion.AutoDetect(mySqlConnection))

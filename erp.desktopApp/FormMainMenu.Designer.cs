@@ -319,8 +319,10 @@
             Controls.Add(panelTitledBar);
             Controls.Add(panelMenu);
             Name = "FormMainMenu";
+            SizeGripStyle = SizeGripStyle.Show;
             Text = "Form1";
             WindowState = FormWindowState.Maximized;
+            Activated += FormMainMenu_Activated;
             panelMenu.ResumeLayout(false);
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)btnHome).EndInit();

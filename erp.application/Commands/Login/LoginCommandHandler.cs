@@ -18,7 +18,6 @@ public class LoginCommandHandler : IRequestHandler<LoginCommand, User>
     public async Task<User> Handle(LoginCommand request, CancellationToken cancellationToken)
     {
         var user = await _userRepository.GetByFilter(u => u.Username.ToLower().Equals(request.Username.ToLower()));
-
         
         if (!request.Password.VerifyPassword(user?.Password ?? "123".EncryptPassword()))
             throw new BusinessRuleException("User not found or wrong password");
