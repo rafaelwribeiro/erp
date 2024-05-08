@@ -11,7 +11,7 @@ public static class GlobalInfo
         return _currentUser;
     }
 
-    public static void SetCurrentUser(User user)
+    public static void SetCurrentUser(User? user)
     {
         _currentUser = user;
     }

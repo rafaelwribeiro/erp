@@ -29,8 +29,6 @@ public partial class FormMainMenu : Form
         this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
 
         serviceProvider = ServiceProviderStatic.GetServiceProvider();
-
-        this.Visible = false;
     }
 
     //Structs
@@ -170,12 +168,6 @@ public partial class FormMainMenu : Form
 
     private void FormMainMenu_Activated(object sender, EventArgs e)
     {
-        if (GlobalInfo.GetCurrentUser() is null)
-        {
-            this.Hide();
-            var form = serviceProvider.GetRequiredService<FormLogin>();
-            if(form.ShowDialog(this) == DialogResult.OK)
-                this.Show();
-        }
+        
     }
 }

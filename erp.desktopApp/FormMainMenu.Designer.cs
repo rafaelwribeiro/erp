@@ -320,6 +320,7 @@
             Controls.Add(panelMenu);
             Name = "FormMainMenu";
             SizeGripStyle = SizeGripStyle.Show;
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
             WindowState = FormWindowState.Maximized;
             Activated += FormMainMenu_Activated;

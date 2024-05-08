@@ -18,14 +18,31 @@ public partial class FormLogin : Form
     {
         try
         {
-            var user = await _mediator.Send(new LoginCommand { Username = "admin", Password = "!123456"});
+            SetButtonsToDisabled(true);
+            var user = await _mediator.Send(new LoginCommand { Username = txtLogin.Text, Password = txtPassword.Text });
             GlobalInfo.SetCurrentUser(user);
             this.DialogResult = DialogResult.OK;
             this.Close();
-        } catch(Exception ex)
+        }
+        catch (Exception ex)
         {
             MessageBox.Show(ex.Message);
-            this.DialogResult = DialogResult.Cancel;
+            //this.DialogResult = DialogResult.Cancel;
         }
+        finally
+        {
+            SetButtonsToDisabled(false);
+        }
+    }
+
+    private void SetButtonsToDisabled(bool v)
+    {
+        btnClose.Enabled = !v;
+        btnLogin.Enabled = !v;
+    }
+
+    private void btnClose_Click(object sender, EventArgs e)
+    {
+        this.Close();
     }
 }
