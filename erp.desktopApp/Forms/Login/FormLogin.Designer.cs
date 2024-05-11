@@ -81,17 +81,17 @@
             iconPictureBox3.IconChar = FontAwesome.Sharp.IconChar.Odnoklassniki;
             iconPictureBox3.IconColor = Color.Gainsboro;
             iconPictureBox3.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconPictureBox3.IconSize = 84;
-            iconPictureBox3.Location = new Point(54, 3);
+            iconPictureBox3.IconSize = 117;
+            iconPictureBox3.Location = new Point(43, 3);
             iconPictureBox3.Name = "iconPictureBox3";
-            iconPictureBox3.Size = new Size(93, 84);
+            iconPictureBox3.Size = new Size(120, 117);
             iconPictureBox3.TabIndex = 6;
             iconPictureBox3.TabStop = false;
             // 
             // txtPassword
             // 
             txtPassword.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            txtPassword.Location = new Point(33, 122);
+            txtPassword.Location = new Point(33, 155);
             txtPassword.Name = "txtPassword";
             txtPassword.PasswordChar = '*';
             txtPassword.PlaceholderText = "Password";
@@ -101,7 +101,7 @@
             // txtLogin
             // 
             txtLogin.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            txtLogin.Location = new Point(33, 93);
+            txtLogin.Location = new Point(33, 126);
             txtLogin.Name = "txtLogin";
             txtLogin.PlaceholderText = "Username";
             txtLogin.Size = new Size(163, 23);
@@ -115,7 +115,7 @@
             iconPictureBox2.IconColor = Color.Gainsboro;
             iconPictureBox2.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconPictureBox2.IconSize = 24;
-            iconPictureBox2.Location = new Point(3, 123);
+            iconPictureBox2.Location = new Point(3, 156);
             iconPictureBox2.Name = "iconPictureBox2";
             iconPictureBox2.Size = new Size(24, 24);
             iconPictureBox2.TabIndex = 3;
@@ -129,7 +129,7 @@
             iconPictureBox1.IconColor = Color.Gainsboro;
             iconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconPictureBox1.IconSize = 24;
-            iconPictureBox1.Location = new Point(3, 93);
+            iconPictureBox1.Location = new Point(3, 126);
             iconPictureBox1.Name = "iconPictureBox1";
             iconPictureBox1.Size = new Size(24, 24);
             iconPictureBox1.TabIndex = 2;

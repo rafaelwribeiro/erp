@@ -2,6 +2,7 @@
 using erp.desktopApp.Forms.Login;
 using Microsoft.Extensions.DependencyInjection;
 using erp.crosscutting.AppDependencies;
+using erp.desktopApp.Forms.Product;
 
 namespace erp.desktopApp;
 
@@ -16,6 +17,7 @@ public static class ServiceProviderStatic
         //serviceCollection.AddTransient<FormMainMenu>();
         serviceCollection.AddTransient<FormLogin>();
         serviceCollection.AddTransient<FormDashboard>();
+        serviceCollection.AddTransient<FormListProducts>();
 
         return serviceProvider = serviceCollection.BuildServiceProvider();
     }

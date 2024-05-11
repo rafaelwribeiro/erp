@@ -27,7 +27,6 @@ public partial class FormLogin : Form
         catch (Exception ex)
         {
             MessageBox.Show(ex.Message);
-            //this.DialogResult = DialogResult.Cancel;
         }
         finally
         {

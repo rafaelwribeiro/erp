@@ -4,6 +4,8 @@ using System.Runtime.InteropServices;
 using Microsoft.Extensions.DependencyInjection;
 using erp.desktopApp.Forms.Dashboard;
 using erp.desktopApp.Forms.Login;
+using erp.desktopApp.Forms.Product;
+using System.Windows.Forms;
 
 namespace erp.desktopApp;
 
@@ -110,6 +112,8 @@ public partial class FormMainMenu : Form
     private void btnProducts_Click(object sender, EventArgs e)
     {
         ActivateButton(sender, RGBColors.color1);
+        var form = serviceProvider.GetRequiredService<FormListProducts>();
+        OpenChildForm(form);
     }
 
     private void btnCustomers_Click(object sender, EventArgs e)
