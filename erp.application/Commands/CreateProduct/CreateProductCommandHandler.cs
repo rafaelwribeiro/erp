@@ -1,12 +1,11 @@
 ﻿using erp.domain.Abstractions;
 using erp.domain.Entities;
-using erp.domain.Exceptions;
 using Mapster;
 using MediatR;
 
 namespace erp.application.Commands.CreateProduct;
 
-public class CreateProductCommandHandler : IRequestHandler<CreateProductCommand, Product>
+internal class CreateProductCommandHandler : IRequestHandler<CreateProductCommand, Product>
 {
     
     private readonly IUnitOfWork _unitOfWork;
@@ -20,26 +19,33 @@ public class CreateProductCommandHandler : IRequestHandler<CreateProductCommand,
     {
         var prodRepo = _unitOfWork.ProductRepository;
 
-        Validate(request);
 
         var product = request.Adapt<Product>();
+        product.Validate();
 
         await prodRepo.Add(product);
+        await CreateStockMovement(request, product);
+
         await _unitOfWork.CommitAsync();
 
         return product;
     }
 
-    private void Validate(CreateProductCommand request)
+    private async Task CreateStockMovement(CreateProductCommand request, Product product)
     {
-        if (string.IsNullOrEmpty(request.Name))
-            throw new BusinessRuleException("Name must be informed");
-        
-        if (request.Price < 0)
-            throw new BusinessRuleException("Price must be greater then Zero.");
-        
-        if (request.StockQuantity < 0)
-            throw new BusinessRuleException("Stock Quantity must be greater then Zero.");
+        if (request.StockQuantity <= 0) return;
 
+        var stockRepo = _unitOfWork.StockMovementRepository;
+
+        var stock = new StockMovement
+        {
+            Product = product,
+            ProductId = product.Id,
+            Amount = request.StockQuantity,
+            Type = domain.Enumerators.StockMovementType.In,
+            Description = "Product created"
+        };
+
+        await stockRepo.Add(stock);
     }
 }

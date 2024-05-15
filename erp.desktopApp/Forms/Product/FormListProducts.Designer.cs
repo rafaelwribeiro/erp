@@ -31,12 +31,15 @@
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             gridProducts = new DataGridView();
-            panel1 = new Panel();
             colId = new DataGridViewTextBoxColumn();
             colName = new DataGridViewTextBoxColumn();
             colPrice = new DataGridViewTextBoxColumn();
             colStock = new DataGridViewTextBoxColumn();
+            panel1 = new Panel();
+            btnRemove = new FontAwesome.Sharp.IconButton();
+            btnNewProduct = new FontAwesome.Sharp.IconButton();
             ((System.ComponentModel.ISupportInitialize)gridProducts).BeginInit();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // gridProducts
@@ -58,23 +61,14 @@
             gridProducts.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             gridProducts.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             gridProducts.Columns.AddRange(new DataGridViewColumn[] { colId, colName, colPrice, colStock });
-            gridProducts.Location = new Point(-2, 20);
+            gridProducts.Location = new Point(-2, 53);
             gridProducts.MultiSelect = false;
             gridProducts.Name = "gridProducts";
             gridProducts.ReadOnly = true;
             gridProducts.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            gridProducts.Size = new Size(800, 429);
+            gridProducts.Size = new Size(800, 396);
             gridProducts.TabIndex = 0;
             gridProducts.DoubleClick += gridProducts_DoubleClick;
-            // 
-            // panel1
-            // 
-            panel1.BackColor = SystemColors.ActiveCaptionText;
-            panel1.Dock = DockStyle.Top;
-            panel1.Location = new Point(0, 0);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(800, 19);
-            panel1.TabIndex = 1;
             // 
             // colId
             // 
@@ -104,6 +98,55 @@
             colStock.ReadOnly = true;
             colStock.Resizable = DataGridViewTriState.False;
             // 
+            // panel1
+            // 
+            panel1.BackColor = Color.White;
+            panel1.Controls.Add(btnRemove);
+            panel1.Controls.Add(btnNewProduct);
+            panel1.Dock = DockStyle.Top;
+            panel1.Location = new Point(0, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(800, 52);
+            panel1.TabIndex = 1;
+            // 
+            // btnRemove
+            // 
+            btnRemove.Dock = DockStyle.Left;
+            btnRemove.FlatStyle = FlatStyle.Flat;
+            btnRemove.IconChar = FontAwesome.Sharp.IconChar.Multiply;
+            btnRemove.IconColor = Color.Black;
+            btnRemove.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnRemove.IconSize = 24;
+            btnRemove.ImageAlign = ContentAlignment.MiddleLeft;
+            btnRemove.Location = new Point(113, 0);
+            btnRemove.Name = "btnRemove";
+            btnRemove.Size = new Size(131, 52);
+            btnRemove.TabIndex = 1;
+            btnRemove.Text = "Remove Product";
+            btnRemove.TextAlign = ContentAlignment.MiddleLeft;
+            btnRemove.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnRemove.UseVisualStyleBackColor = true;
+            btnRemove.Click += btnRemove_Click;
+            // 
+            // btnNewProduct
+            // 
+            btnNewProduct.Dock = DockStyle.Left;
+            btnNewProduct.FlatStyle = FlatStyle.Flat;
+            btnNewProduct.IconChar = FontAwesome.Sharp.IconChar.Plus;
+            btnNewProduct.IconColor = Color.Black;
+            btnNewProduct.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnNewProduct.IconSize = 24;
+            btnNewProduct.ImageAlign = ContentAlignment.MiddleLeft;
+            btnNewProduct.Location = new Point(0, 0);
+            btnNewProduct.Name = "btnNewProduct";
+            btnNewProduct.Size = new Size(113, 52);
+            btnNewProduct.TabIndex = 0;
+            btnNewProduct.Text = "New Product";
+            btnNewProduct.TextAlign = ContentAlignment.MiddleLeft;
+            btnNewProduct.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnNewProduct.UseVisualStyleBackColor = true;
+            btnNewProduct.Click += btnNewProduct_Click;
+            // 
             // FormListProducts
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -116,6 +159,7 @@
             Activated += FormListProducts_Activated;
             Load += FormListProducts_Load;
             ((System.ComponentModel.ISupportInitialize)gridProducts).EndInit();
+            panel1.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -127,5 +171,7 @@
         private DataGridViewTextBoxColumn colName;
         private DataGridViewTextBoxColumn colPrice;
         private DataGridViewTextBoxColumn colStock;
+        private FontAwesome.Sharp.IconButton btnNewProduct;
+        private FontAwesome.Sharp.IconButton btnRemove;
     }
 }

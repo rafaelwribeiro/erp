@@ -3,7 +3,7 @@ using MediatR;
 
 namespace erp.application.Commands.DeleteProduct;
 
-public class DeleteProductCommandHandler : IRequestHandler<DeleteProductCommand>
+internal class DeleteProductCommandHandler : IRequestHandler<DeleteProductCommand>
 {
     private readonly IUnitOfWork _unitOfWork;
 

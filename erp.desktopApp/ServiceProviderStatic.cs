@@ -18,6 +18,7 @@ public static class ServiceProviderStatic
         serviceCollection.AddTransient<FormLogin>();
         serviceCollection.AddTransient<FormDashboard>();
         serviceCollection.AddTransient<FormListProducts>();
+        serviceCollection.AddTransient<FormEditProduct>();
 
         return serviceProvider = serviceCollection.BuildServiceProvider();
     }

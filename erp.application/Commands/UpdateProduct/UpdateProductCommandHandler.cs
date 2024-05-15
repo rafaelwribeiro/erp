@@ -4,10 +4,10 @@ using MediatR;
 
 namespace erp.application.Commands.UpdateProduct;
 
-public class UpdateProductCommandHandler : IRequestHandler<UpdateProductCommand>
+internal class UpdateProductCommandHandler : IRequestHandler<UpdateProductCommand>
 {
     private readonly IUnitOfWork _unitOfWork;
-public UpdateProductCommandHandler(IUnitOfWork unitOfWork)
+    public UpdateProductCommandHandler(IUnitOfWork unitOfWork)
     {
         _unitOfWork = unitOfWork;
     }
@@ -21,6 +21,8 @@ public UpdateProductCommandHandler(IUnitOfWork unitOfWork)
             throw new KeyNotFoundException($"Product with Id {request.Id} does not exists");
 
         request.Adapt(existingProduct);
+
+        existingProduct.Validate();
 
         repo.Update(existingProduct);
 
