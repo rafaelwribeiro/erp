@@ -36,8 +36,11 @@
             colPrice = new DataGridViewTextBoxColumn();
             colStock = new DataGridViewTextBoxColumn();
             panel1 = new Panel();
+            btnSearch = new FontAwesome.Sharp.IconButton();
+            btnVizualize = new FontAwesome.Sharp.IconButton();
             btnRemove = new FontAwesome.Sharp.IconButton();
             btnNewProduct = new FontAwesome.Sharp.IconButton();
+            panel2 = new Panel();
             ((System.ComponentModel.ISupportInitialize)gridProducts).BeginInit();
             panel1.SuspendLayout();
             SuspendLayout();
@@ -49,7 +52,7 @@
             dataGridViewCellStyle1.BackColor = Color.WhiteSmoke;
             gridProducts.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             gridProducts.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            gridProducts.BorderStyle = BorderStyle.None;
+            gridProducts.BackgroundColor = Color.Gainsboro;
             gridProducts.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = Color.FromArgb(20, 25, 70);
@@ -61,12 +64,13 @@
             gridProducts.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             gridProducts.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             gridProducts.Columns.AddRange(new DataGridViewColumn[] { colId, colName, colPrice, colStock });
-            gridProducts.Location = new Point(-2, 53);
+            gridProducts.GridColor = Color.Gainsboro;
+            gridProducts.Location = new Point(-2, 89);
             gridProducts.MultiSelect = false;
             gridProducts.Name = "gridProducts";
             gridProducts.ReadOnly = true;
             gridProducts.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            gridProducts.Size = new Size(800, 396);
+            gridProducts.Size = new Size(800, 360);
             gridProducts.TabIndex = 0;
             gridProducts.DoubleClick += gridProducts_DoubleClick;
             // 
@@ -101,57 +105,104 @@
             // panel1
             // 
             panel1.BackColor = Color.White;
+            panel1.Controls.Add(btnSearch);
+            panel1.Controls.Add(btnVizualize);
             panel1.Controls.Add(btnRemove);
             panel1.Controls.Add(btnNewProduct);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(800, 52);
+            panel1.Size = new Size(800, 45);
             panel1.TabIndex = 1;
+            // 
+            // btnSearch
+            // 
+            btnSearch.Dock = DockStyle.Left;
+            btnSearch.FlatAppearance.BorderSize = 0;
+            btnSearch.FlatStyle = FlatStyle.Flat;
+            btnSearch.IconChar = FontAwesome.Sharp.IconChar.Search;
+            btnSearch.IconColor = Color.Black;
+            btnSearch.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnSearch.IconSize = 24;
+            btnSearch.Location = new Point(375, 0);
+            btnSearch.Name = "btnSearch";
+            btnSearch.Size = new Size(131, 45);
+            btnSearch.TabIndex = 3;
+            btnSearch.Text = "Atualizar";
+            btnSearch.TextImageRelation = TextImageRelation.ImageAboveText;
+            btnSearch.UseVisualStyleBackColor = true;
+            btnSearch.Click += btnSearch_Click;
+            // 
+            // btnVizualize
+            // 
+            btnVizualize.Dock = DockStyle.Left;
+            btnVizualize.FlatAppearance.BorderSize = 0;
+            btnVizualize.FlatStyle = FlatStyle.Flat;
+            btnVizualize.IconChar = FontAwesome.Sharp.IconChar.PenToSquare;
+            btnVizualize.IconColor = Color.Black;
+            btnVizualize.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnVizualize.IconSize = 24;
+            btnVizualize.Location = new Point(244, 0);
+            btnVizualize.Name = "btnVizualize";
+            btnVizualize.Size = new Size(131, 45);
+            btnVizualize.TabIndex = 2;
+            btnVizualize.Text = "Vizualizar";
+            btnVizualize.TextImageRelation = TextImageRelation.ImageAboveText;
+            btnVizualize.UseVisualStyleBackColor = true;
+            btnVizualize.Click += btnVizualize_Click;
             // 
             // btnRemove
             // 
             btnRemove.Dock = DockStyle.Left;
+            btnRemove.FlatAppearance.BorderSize = 0;
             btnRemove.FlatStyle = FlatStyle.Flat;
             btnRemove.IconChar = FontAwesome.Sharp.IconChar.Multiply;
             btnRemove.IconColor = Color.Black;
             btnRemove.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnRemove.IconSize = 24;
-            btnRemove.ImageAlign = ContentAlignment.MiddleLeft;
             btnRemove.Location = new Point(113, 0);
             btnRemove.Name = "btnRemove";
-            btnRemove.Size = new Size(131, 52);
+            btnRemove.Size = new Size(131, 45);
             btnRemove.TabIndex = 1;
-            btnRemove.Text = "Remove Product";
-            btnRemove.TextAlign = ContentAlignment.MiddleLeft;
-            btnRemove.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnRemove.Text = "Excluir";
+            btnRemove.TextImageRelation = TextImageRelation.ImageAboveText;
             btnRemove.UseVisualStyleBackColor = true;
             btnRemove.Click += btnRemove_Click;
             // 
             // btnNewProduct
             // 
             btnNewProduct.Dock = DockStyle.Left;
+            btnNewProduct.FlatAppearance.BorderSize = 0;
             btnNewProduct.FlatStyle = FlatStyle.Flat;
             btnNewProduct.IconChar = FontAwesome.Sharp.IconChar.Plus;
             btnNewProduct.IconColor = Color.Black;
             btnNewProduct.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnNewProduct.IconSize = 24;
-            btnNewProduct.ImageAlign = ContentAlignment.MiddleLeft;
             btnNewProduct.Location = new Point(0, 0);
             btnNewProduct.Name = "btnNewProduct";
-            btnNewProduct.Size = new Size(113, 52);
+            btnNewProduct.Size = new Size(113, 45);
             btnNewProduct.TabIndex = 0;
-            btnNewProduct.Text = "New Product";
-            btnNewProduct.TextAlign = ContentAlignment.MiddleLeft;
-            btnNewProduct.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnNewProduct.Text = "Novo";
+            btnNewProduct.TextImageRelation = TextImageRelation.ImageAboveText;
             btnNewProduct.UseVisualStyleBackColor = true;
             btnNewProduct.Click += btnNewProduct_Click;
+            // 
+            // panel2
+            // 
+            panel2.BackColor = Color.White;
+            panel2.Dock = DockStyle.Top;
+            panel2.Location = new Point(0, 45);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(800, 45);
+            panel2.TabIndex = 2;
             // 
             // FormListProducts
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.Gainsboro;
             ClientSize = new Size(800, 450);
+            Controls.Add(panel2);
             Controls.Add(panel1);
             Controls.Add(gridProducts);
             Name = "FormListProducts";
@@ -173,5 +224,8 @@
         private DataGridViewTextBoxColumn colStock;
         private FontAwesome.Sharp.IconButton btnNewProduct;
         private FontAwesome.Sharp.IconButton btnRemove;
+        private FontAwesome.Sharp.IconButton btnVizualize;
+        private FontAwesome.Sharp.IconButton btnSearch;
+        private Panel panel2;
     }
 }

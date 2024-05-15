@@ -31,25 +31,24 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormLogin));
             btnLogin = new Button();
             panel1 = new Panel();
-            iconPictureBox3 = new FontAwesome.Sharp.IconPictureBox();
             txtPassword = new TextBox();
             txtLogin = new TextBox();
             iconPictureBox2 = new FontAwesome.Sharp.IconPictureBox();
             iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
             btnClose = new Button();
+            pictureBox1 = new PictureBox();
             panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)iconPictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)iconPictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)iconPictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // btnLogin
             // 
-            btnLogin.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnLogin.BackColor = Color.Gainsboro;
             btnLogin.FlatStyle = FlatStyle.Flat;
             btnLogin.ForeColor = Color.FromArgb(34, 33, 74);
-            btnLogin.Location = new Point(101, 184);
+            btnLogin.Location = new Point(104, 149);
             btnLogin.Name = "btnLogin";
             btnLogin.Size = new Size(95, 29);
             btnLogin.TabIndex = 0;
@@ -61,37 +60,22 @@
             // 
             panel1.Anchor = AnchorStyles.None;
             panel1.BackColor = Color.FromArgb(34, 33, 74);
-            panel1.Controls.Add(iconPictureBox3);
+            panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(txtPassword);
             panel1.Controls.Add(txtLogin);
             panel1.Controls.Add(iconPictureBox2);
             panel1.Controls.Add(iconPictureBox1);
             panel1.Controls.Add(btnClose);
             panel1.Controls.Add(btnLogin);
-            panel1.Location = new Point(235, 159);
+            panel1.Location = new Point(210, 134);
             panel1.Name = "panel1";
-            panel1.Size = new Size(199, 222);
+            panel1.Size = new Size(207, 196);
             panel1.TabIndex = 1;
-            // 
-            // iconPictureBox3
-            // 
-            iconPictureBox3.Anchor = AnchorStyles.Top;
-            iconPictureBox3.BackColor = Color.FromArgb(34, 33, 74);
-            iconPictureBox3.ForeColor = Color.Gainsboro;
-            iconPictureBox3.IconChar = FontAwesome.Sharp.IconChar.Odnoklassniki;
-            iconPictureBox3.IconColor = Color.Gainsboro;
-            iconPictureBox3.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconPictureBox3.IconSize = 117;
-            iconPictureBox3.Location = new Point(43, 3);
-            iconPictureBox3.Name = "iconPictureBox3";
-            iconPictureBox3.Size = new Size(120, 117);
-            iconPictureBox3.TabIndex = 6;
-            iconPictureBox3.TabStop = false;
             // 
             // txtPassword
             // 
             txtPassword.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            txtPassword.Location = new Point(33, 155);
+            txtPassword.Location = new Point(36, 120);
             txtPassword.Name = "txtPassword";
             txtPassword.PasswordChar = '*';
             txtPassword.PlaceholderText = "Password";
@@ -101,7 +85,7 @@
             // txtLogin
             // 
             txtLogin.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            txtLogin.Location = new Point(33, 126);
+            txtLogin.Location = new Point(36, 91);
             txtLogin.Name = "txtLogin";
             txtLogin.PlaceholderText = "Username";
             txtLogin.Size = new Size(163, 23);
@@ -115,7 +99,7 @@
             iconPictureBox2.IconColor = Color.Gainsboro;
             iconPictureBox2.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconPictureBox2.IconSize = 24;
-            iconPictureBox2.Location = new Point(3, 156);
+            iconPictureBox2.Location = new Point(6, 120);
             iconPictureBox2.Name = "iconPictureBox2";
             iconPictureBox2.Size = new Size(24, 24);
             iconPictureBox2.TabIndex = 3;
@@ -129,7 +113,7 @@
             iconPictureBox1.IconColor = Color.Gainsboro;
             iconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconPictureBox1.IconSize = 24;
-            iconPictureBox1.Location = new Point(3, 126);
+            iconPictureBox1.Location = new Point(6, 90);
             iconPictureBox1.Name = "iconPictureBox1";
             iconPictureBox1.Size = new Size(24, 24);
             iconPictureBox1.TabIndex = 2;
@@ -137,17 +121,27 @@
             // 
             // btnClose
             // 
-            btnClose.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             btnClose.BackColor = Color.Gainsboro;
             btnClose.FlatStyle = FlatStyle.Flat;
             btnClose.ForeColor = Color.FromArgb(34, 33, 74);
-            btnClose.Location = new Point(3, 184);
+            btnClose.Location = new Point(3, 149);
             btnClose.Name = "btnClose";
             btnClose.Size = new Size(95, 29);
             btnClose.TabIndex = 1;
             btnClose.Text = "Close";
             btnClose.UseVisualStyleBackColor = false;
             btnClose.Click += btnClose_Click;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Dock = DockStyle.Top;
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(0, 0);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(207, 85);
+            pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
+            pictureBox1.TabIndex = 6;
+            pictureBox1.TabStop = false;
             // 
             // FormLogin
             // 
@@ -167,9 +161,9 @@
             WindowState = FormWindowState.Maximized;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)iconPictureBox3).EndInit();
             ((System.ComponentModel.ISupportInitialize)iconPictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)iconPictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
@@ -182,6 +176,6 @@
         private TextBox txtLogin;
         private FontAwesome.Sharp.IconPictureBox iconPictureBox2;
         private FontAwesome.Sharp.IconPictureBox iconPictureBox1;
-        private FontAwesome.Sharp.IconPictureBox iconPictureBox3;
+        private PictureBox pictureBox1;
     }
 }

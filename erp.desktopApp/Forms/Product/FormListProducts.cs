@@ -75,13 +75,25 @@ namespace erp.desktopApp.Forms.Product
         private async void btnRemove_Click(object sender, EventArgs e)
         {
             var product = GetSelectedProduct();
-            if(product is null) return;
+            if (product is null) return;
 
             DialogResult result = MessageBox.Show("Are you sure you want to proceed?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result != DialogResult.Yes)
                 return;
             var command = new DeleteProductCommand(product.Id);
             await _mediator.Send(command);
+            await LoadGrid();
+        }
+
+        private async void btnVizualize_Click(object sender, EventArgs e)
+        {
+            var product = GetSelectedProduct();
+            if (product is null) return;
+            await OpenEditCreateProduct(product);
+        }
+
+        private async void btnSearch_Click(object sender, EventArgs e)
+        {
             await LoadGrid();
         }
     }
