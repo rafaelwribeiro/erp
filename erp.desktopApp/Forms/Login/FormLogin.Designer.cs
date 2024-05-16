@@ -29,153 +29,312 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormLogin));
-            btnLogin = new Button();
-            panel1 = new Panel();
-            txtPassword = new TextBox();
-            txtLogin = new TextBox();
-            iconPictureBox2 = new FontAwesome.Sharp.IconPictureBox();
-            iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
-            btnClose = new Button();
+            panel2 = new Panel();
+            label4 = new Label();
+            label3 = new Label();
+            label2 = new Label();
+            label1 = new Label();
             pictureBox1 = new PictureBox();
-            panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)iconPictureBox2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)iconPictureBox1).BeginInit();
+            panel1 = new Panel();
+            label7 = new Label();
+            btnClear = new Button();
+            btnLogin = new Button();
+            pnlPassword = new Panel();
+            txtPassword = new TextBox();
+            iconPassword = new FontAwesome.Sharp.IconPictureBox();
+            pnlUser = new Panel();
+            txtUser = new TextBox();
+            iconUser = new FontAwesome.Sharp.IconPictureBox();
+            label5 = new Label();
+            btnClose = new Button();
+            panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            panel1.SuspendLayout();
+            pnlPassword.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)iconPassword).BeginInit();
+            pnlUser.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)iconUser).BeginInit();
             SuspendLayout();
             // 
-            // btnLogin
+            // panel2
             // 
-            btnLogin.BackColor = Color.Gainsboro;
-            btnLogin.FlatStyle = FlatStyle.Flat;
-            btnLogin.ForeColor = Color.FromArgb(34, 33, 74);
-            btnLogin.Location = new Point(104, 149);
-            btnLogin.Name = "btnLogin";
-            btnLogin.Size = new Size(95, 29);
-            btnLogin.TabIndex = 0;
-            btnLogin.Text = "Login";
-            btnLogin.UseVisualStyleBackColor = false;
-            btnLogin.Click += button1_Click;
+            panel2.BackColor = Color.FromArgb(41, 128, 185);
+            panel2.Controls.Add(label4);
+            panel2.Controls.Add(label3);
+            panel2.Controls.Add(label2);
+            panel2.Controls.Add(label1);
+            panel2.Controls.Add(pictureBox1);
+            panel2.Dock = DockStyle.Left;
+            panel2.Location = new Point(0, 0);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(300, 530);
+            panel2.TabIndex = 2;
             // 
-            // panel1
+            // label4
             // 
-            panel1.Anchor = AnchorStyles.None;
-            panel1.BackColor = Color.FromArgb(34, 33, 74);
-            panel1.Controls.Add(pictureBox1);
-            panel1.Controls.Add(txtPassword);
-            panel1.Controls.Add(txtLogin);
-            panel1.Controls.Add(iconPictureBox2);
-            panel1.Controls.Add(iconPictureBox1);
-            panel1.Controls.Add(btnClose);
-            panel1.Controls.Add(btnLogin);
-            panel1.Location = new Point(210, 134);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(207, 196);
-            panel1.TabIndex = 1;
+            label4.AutoSize = true;
+            label4.Font = new Font("Roboto", 8F);
+            label4.ForeColor = Color.White;
+            label4.Location = new Point(177, 490);
+            label4.Name = "label4";
+            label4.Size = new Size(117, 13);
+            label4.TabIndex = 4;
+            label4.Text = "Rafael William Ribeiro";
             // 
-            // txtPassword
+            // label3
             // 
-            txtPassword.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            txtPassword.Location = new Point(36, 120);
-            txtPassword.Name = "txtPassword";
-            txtPassword.PasswordChar = '*';
-            txtPassword.PlaceholderText = "Password";
-            txtPassword.Size = new Size(163, 23);
-            txtPassword.TabIndex = 5;
+            label3.AutoSize = true;
+            label3.Font = new Font("Roboto", 8F);
+            label3.ForeColor = Color.White;
+            label3.Location = new Point(201, 477);
+            label3.Name = "label3";
+            label3.Size = new Size(93, 13);
+            label3.TabIndex = 3;
+            label3.Text = "Desenvolvido por";
             // 
-            // txtLogin
+            // label2
             // 
-            txtLogin.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            txtLogin.Location = new Point(36, 91);
-            txtLogin.Name = "txtLogin";
-            txtLogin.PlaceholderText = "Username";
-            txtLogin.Size = new Size(163, 23);
-            txtLogin.TabIndex = 4;
+            label2.AutoSize = true;
+            label2.Font = new Font("Roboto", 16F);
+            label2.ForeColor = Color.White;
+            label2.Location = new Point(173, 210);
+            label2.Name = "label2";
+            label2.Size = new Size(121, 27);
+            label2.TabIndex = 2;
+            label2.Text = "RW Gestão";
             // 
-            // iconPictureBox2
+            // label1
             // 
-            iconPictureBox2.BackColor = Color.FromArgb(34, 33, 74);
-            iconPictureBox2.ForeColor = Color.Gainsboro;
-            iconPictureBox2.IconChar = FontAwesome.Sharp.IconChar.Key;
-            iconPictureBox2.IconColor = Color.Gainsboro;
-            iconPictureBox2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconPictureBox2.IconSize = 24;
-            iconPictureBox2.Location = new Point(6, 120);
-            iconPictureBox2.Name = "iconPictureBox2";
-            iconPictureBox2.Size = new Size(24, 24);
-            iconPictureBox2.TabIndex = 3;
-            iconPictureBox2.TabStop = false;
-            // 
-            // iconPictureBox1
-            // 
-            iconPictureBox1.BackColor = Color.FromArgb(34, 33, 74);
-            iconPictureBox1.ForeColor = Color.Gainsboro;
-            iconPictureBox1.IconChar = FontAwesome.Sharp.IconChar.User;
-            iconPictureBox1.IconColor = Color.Gainsboro;
-            iconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconPictureBox1.IconSize = 24;
-            iconPictureBox1.Location = new Point(6, 90);
-            iconPictureBox1.Name = "iconPictureBox1";
-            iconPictureBox1.Size = new Size(24, 24);
-            iconPictureBox1.TabIndex = 2;
-            iconPictureBox1.TabStop = false;
-            // 
-            // btnClose
-            // 
-            btnClose.BackColor = Color.Gainsboro;
-            btnClose.FlatStyle = FlatStyle.Flat;
-            btnClose.ForeColor = Color.FromArgb(34, 33, 74);
-            btnClose.Location = new Point(3, 149);
-            btnClose.Name = "btnClose";
-            btnClose.Size = new Size(95, 29);
-            btnClose.TabIndex = 1;
-            btnClose.Text = "Close";
-            btnClose.UseVisualStyleBackColor = false;
-            btnClose.Click += btnClose_Click;
+            label1.AutoSize = true;
+            label1.Font = new Font("Roboto", 16F);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(99, 183);
+            label1.Name = "label1";
+            label1.Size = new Size(195, 27);
+            label1.TabIndex = 1;
+            label1.Text = "Seja bem vindo ao";
             // 
             // pictureBox1
             // 
-            pictureBox1.Dock = DockStyle.Top;
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(0, 0);
+            pictureBox1.Image = Properties.Resources.logo;
+            pictureBox1.Location = new Point(99, 37);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(207, 85);
-            pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
-            pictureBox1.TabIndex = 6;
+            pictureBox1.Size = new Size(131, 72);
+            pictureBox1.SizeMode = PictureBoxSizeMode.AutoSize;
+            pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
+            // 
+            // panel1
+            // 
+            panel1.Controls.Add(label7);
+            panel1.Controls.Add(btnClear);
+            panel1.Controls.Add(btnLogin);
+            panel1.Controls.Add(pnlPassword);
+            panel1.Controls.Add(pnlUser);
+            panel1.Controls.Add(label5);
+            panel1.Controls.Add(btnClose);
+            panel1.Dock = DockStyle.Fill;
+            panel1.Location = new Point(300, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(450, 530);
+            panel1.TabIndex = 3;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Roboto", 8F);
+            label7.ForeColor = Color.Silver;
+            label7.Location = new Point(9, 490);
+            label7.Name = "label7";
+            label7.Size = new Size(165, 13);
+            label7.TabIndex = 7;
+            label7.Text = "® Todos os direitos reservados";
+            // 
+            // btnClear
+            // 
+            btnClear.BackColor = SystemColors.Control;
+            btnClear.FlatAppearance.BorderSize = 0;
+            btnClear.FlatStyle = FlatStyle.Flat;
+            btnClear.Font = new Font("Roboto", 8F);
+            btnClear.ForeColor = Color.FromArgb(41, 128, 185);
+            btnClear.Location = new Point(163, 300);
+            btnClear.Name = "btnClear";
+            btnClear.Size = new Size(148, 35);
+            btnClear.TabIndex = 6;
+            btnClear.Text = "Limpar campos";
+            btnClear.UseVisualStyleBackColor = false;
+            btnClear.Click += btnClear_Click;
+            // 
+            // btnLogin
+            // 
+            btnLogin.BackColor = Color.FromArgb(41, 128, 185);
+            btnLogin.FlatAppearance.BorderSize = 0;
+            btnLogin.FlatStyle = FlatStyle.Flat;
+            btnLogin.Font = new Font("Roboto", 10F);
+            btnLogin.ForeColor = Color.White;
+            btnLogin.Location = new Point(9, 300);
+            btnLogin.Name = "btnLogin";
+            btnLogin.Size = new Size(148, 35);
+            btnLogin.TabIndex = 5;
+            btnLogin.Text = "LOGIN";
+            btnLogin.UseVisualStyleBackColor = false;
+            btnLogin.Click += btnLogin_Click;
+            // 
+            // pnlPassword
+            // 
+            pnlPassword.BackColor = SystemColors.Control;
+            pnlPassword.Controls.Add(txtPassword);
+            pnlPassword.Controls.Add(iconPassword);
+            pnlPassword.Location = new Point(0, 236);
+            pnlPassword.Name = "pnlPassword";
+            pnlPassword.Size = new Size(450, 45);
+            pnlPassword.TabIndex = 4;
+            pnlPassword.Click += txtPassword_Click;
+            // 
+            // txtPassword
+            // 
+            txtPassword.BackColor = SystemColors.Control;
+            txtPassword.BorderStyle = BorderStyle.None;
+            txtPassword.Font = new Font("Roboto", 12F);
+            txtPassword.ForeColor = Color.FromArgb(41, 128, 185);
+            txtPassword.Location = new Point(55, 10);
+            txtPassword.Name = "txtPassword";
+            txtPassword.Size = new Size(370, 20);
+            txtPassword.TabIndex = 2;
+            txtPassword.UseSystemPasswordChar = true;
+            txtPassword.Click += txtPassword_Click;
+            // 
+            // iconPassword
+            // 
+            iconPassword.BackColor = SystemColors.Control;
+            iconPassword.ForeColor = Color.FromArgb(41, 128, 185);
+            iconPassword.IconChar = FontAwesome.Sharp.IconChar.Lock;
+            iconPassword.IconColor = Color.FromArgb(41, 128, 185);
+            iconPassword.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconPassword.IconSize = 24;
+            iconPassword.Location = new Point(16, 10);
+            iconPassword.Name = "iconPassword";
+            iconPassword.Size = new Size(24, 24);
+            iconPassword.SizeMode = PictureBoxSizeMode.CenterImage;
+            iconPassword.TabIndex = 1;
+            iconPassword.TabStop = false;
+            iconPassword.Click += txtPassword_Click;
+            // 
+            // pnlUser
+            // 
+            pnlUser.BackColor = Color.White;
+            pnlUser.Controls.Add(txtUser);
+            pnlUser.Controls.Add(iconUser);
+            pnlUser.Location = new Point(0, 185);
+            pnlUser.Name = "pnlUser";
+            pnlUser.Size = new Size(450, 45);
+            pnlUser.TabIndex = 3;
+            pnlUser.Click += txtUser_Click;
+            // 
+            // txtUser
+            // 
+            txtUser.BackColor = Color.White;
+            txtUser.BorderStyle = BorderStyle.None;
+            txtUser.Font = new Font("Roboto", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtUser.ForeColor = Color.FromArgb(41, 128, 185);
+            txtUser.Location = new Point(55, 10);
+            txtUser.Name = "txtUser";
+            txtUser.Size = new Size(370, 20);
+            txtUser.TabIndex = 1;
+            txtUser.Click += txtUser_Click;
+            // 
+            // iconUser
+            // 
+            iconUser.BackColor = Color.White;
+            iconUser.ForeColor = Color.FromArgb(41, 128, 185);
+            iconUser.IconChar = FontAwesome.Sharp.IconChar.User;
+            iconUser.IconColor = Color.FromArgb(41, 128, 185);
+            iconUser.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconUser.IconSize = 24;
+            iconUser.Location = new Point(16, 10);
+            iconUser.Name = "iconUser";
+            iconUser.Size = new Size(24, 24);
+            iconUser.SizeMode = PictureBoxSizeMode.CenterImage;
+            iconUser.TabIndex = 0;
+            iconUser.TabStop = false;
+            iconUser.Click += txtUser_Click;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.BackColor = SystemColors.Control;
+            label5.Font = new Font("Roboto", 16F);
+            label5.ForeColor = Color.FromArgb(41, 128, 185);
+            label5.Location = new Point(37, 143);
+            label5.Name = "label5";
+            label5.Size = new Size(248, 27);
+            label5.TabIndex = 2;
+            label5.Text = "Logue com seu usuário";
+            // 
+            // btnClose
+            // 
+            btnClose.Cursor = Cursors.Hand;
+            btnClose.FlatAppearance.BorderSize = 0;
+            btnClose.FlatStyle = FlatStyle.Flat;
+            btnClose.Font = new Font("Verdana", 16F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnClose.ForeColor = Color.FromArgb(41, 128, 185);
+            btnClose.Location = new Point(410, 0);
+            btnClose.Name = "btnClose";
+            btnClose.Size = new Size(40, 40);
+            btnClose.TabIndex = 0;
+            btnClose.Text = "X";
+            btnClose.UseVisualStyleBackColor = true;
+            btnClose.Click += btnClose_Click;
             // 
             // FormLogin
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(34, 33, 74);
-            ClientSize = new Size(686, 561);
+            BackColor = SystemColors.Control;
+            ClientSize = new Size(750, 530);
             ControlBox = false;
             Controls.Add(panel1);
+            Controls.Add(panel2);
             FormBorderStyle = FormBorderStyle.None;
             Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "FormLogin";
             ShowIcon = false;
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "FormLogin";
-            WindowState = FormWindowState.Maximized;
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)iconPictureBox2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)iconPictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            pnlPassword.ResumeLayout(false);
+            pnlPassword.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)iconPassword).EndInit();
+            pnlUser.ResumeLayout(false);
+            pnlUser.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)iconUser).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
-
-        private Button btnLogin;
-        private Panel panel1;
-        private Button btnClose;
-        private TextBox txtPassword;
-        private TextBox txtLogin;
-        private FontAwesome.Sharp.IconPictureBox iconPictureBox2;
-        private FontAwesome.Sharp.IconPictureBox iconPictureBox1;
+        private Panel panel2;
+        private Label label1;
         private PictureBox pictureBox1;
+        private Panel panel1;
+        private Label label3;
+        private Label label2;
+        private Label label4;
+        private Button btnClose;
+        private Panel pnlUser;
+        private Label label5;
+        private Panel pnlPassword;
+        private FontAwesome.Sharp.IconPictureBox iconUser;
+        private FontAwesome.Sharp.IconPictureBox iconPassword;
+        private TextBox txtPassword;
+        private TextBox txtUser;
+        private Button btnLogin;
+        private Button btnClear;
+        private Label label7;
     }
 }
