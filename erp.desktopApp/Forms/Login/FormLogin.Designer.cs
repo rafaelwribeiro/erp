@@ -67,15 +67,16 @@
             panel2.Dock = DockStyle.Left;
             panel2.Location = new Point(0, 0);
             panel2.Name = "panel2";
-            panel2.Size = new Size(300, 530);
+            panel2.Size = new Size(260, 530);
             panel2.TabIndex = 2;
             // 
             // label4
             // 
+            label4.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             label4.AutoSize = true;
             label4.Font = new Font("Roboto", 8F);
             label4.ForeColor = Color.White;
-            label4.Location = new Point(177, 490);
+            label4.Location = new Point(137, 490);
             label4.Name = "label4";
             label4.Size = new Size(117, 13);
             label4.TabIndex = 4;
@@ -83,10 +84,11 @@
             // 
             // label3
             // 
+            label3.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             label3.AutoSize = true;
             label3.Font = new Font("Roboto", 8F);
             label3.ForeColor = Color.White;
-            label3.Location = new Point(201, 477);
+            label3.Location = new Point(161, 477);
             label3.Name = "label3";
             label3.Size = new Size(93, 13);
             label3.TabIndex = 3;
@@ -94,10 +96,11 @@
             // 
             // label2
             // 
+            label2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             label2.AutoSize = true;
             label2.Font = new Font("Roboto", 16F);
             label2.ForeColor = Color.White;
-            label2.Location = new Point(173, 210);
+            label2.Location = new Point(133, 210);
             label2.Name = "label2";
             label2.Size = new Size(121, 27);
             label2.TabIndex = 2;
@@ -105,10 +108,11 @@
             // 
             // label1
             // 
+            label1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             label1.AutoSize = true;
             label1.Font = new Font("Roboto", 16F);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(99, 183);
+            label1.Location = new Point(59, 183);
             label1.Name = "label1";
             label1.Size = new Size(195, 27);
             label1.TabIndex = 1;
@@ -117,7 +121,7 @@
             // pictureBox1
             // 
             pictureBox1.Image = Properties.Resources.logo;
-            pictureBox1.Location = new Point(99, 37);
+            pictureBox1.Location = new Point(68, 98);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(131, 72);
             pictureBox1.SizeMode = PictureBoxSizeMode.AutoSize;
@@ -134,9 +138,9 @@
             panel1.Controls.Add(label5);
             panel1.Controls.Add(btnClose);
             panel1.Dock = DockStyle.Fill;
-            panel1.Location = new Point(300, 0);
+            panel1.Location = new Point(260, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(450, 530);
+            panel1.Size = new Size(490, 530);
             panel1.TabIndex = 3;
             // 
             // label7
@@ -182,24 +186,26 @@
             // 
             // pnlPassword
             // 
+            pnlPassword.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             pnlPassword.BackColor = SystemColors.Control;
             pnlPassword.Controls.Add(txtPassword);
             pnlPassword.Controls.Add(iconPassword);
             pnlPassword.Location = new Point(0, 236);
             pnlPassword.Name = "pnlPassword";
-            pnlPassword.Size = new Size(450, 45);
+            pnlPassword.Size = new Size(490, 45);
             pnlPassword.TabIndex = 4;
             pnlPassword.Click += txtPassword_Click;
             // 
             // txtPassword
             // 
+            txtPassword.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             txtPassword.BackColor = SystemColors.Control;
             txtPassword.BorderStyle = BorderStyle.None;
             txtPassword.Font = new Font("Roboto", 12F);
             txtPassword.ForeColor = Color.FromArgb(41, 128, 185);
-            txtPassword.Location = new Point(55, 10);
+            txtPassword.Location = new Point(46, 14);
             txtPassword.Name = "txtPassword";
-            txtPassword.Size = new Size(370, 20);
+            txtPassword.Size = new Size(432, 20);
             txtPassword.TabIndex = 2;
             txtPassword.UseSystemPasswordChar = true;
             txtPassword.Click += txtPassword_Click;
@@ -222,24 +228,26 @@
             // 
             // pnlUser
             // 
+            pnlUser.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             pnlUser.BackColor = Color.White;
             pnlUser.Controls.Add(txtUser);
             pnlUser.Controls.Add(iconUser);
             pnlUser.Location = new Point(0, 185);
             pnlUser.Name = "pnlUser";
-            pnlUser.Size = new Size(450, 45);
+            pnlUser.Size = new Size(490, 45);
             pnlUser.TabIndex = 3;
             pnlUser.Click += txtUser_Click;
             // 
             // txtUser
             // 
+            txtUser.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             txtUser.BackColor = Color.White;
             txtUser.BorderStyle = BorderStyle.None;
             txtUser.Font = new Font("Roboto", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtUser.ForeColor = Color.FromArgb(41, 128, 185);
-            txtUser.Location = new Point(55, 10);
+            txtUser.Location = new Point(46, 14);
             txtUser.Name = "txtUser";
-            txtUser.Size = new Size(370, 20);
+            txtUser.Size = new Size(432, 20);
             txtUser.TabIndex = 1;
             txtUser.Click += txtUser_Click;
             // 
@@ -273,12 +281,13 @@
             // 
             // btnClose
             // 
+            btnClose.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnClose.Cursor = Cursors.Hand;
             btnClose.FlatAppearance.BorderSize = 0;
             btnClose.FlatStyle = FlatStyle.Flat;
             btnClose.Font = new Font("Verdana", 16F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnClose.ForeColor = Color.FromArgb(41, 128, 185);
-            btnClose.Location = new Point(410, 0);
+            btnClose.Location = new Point(450, 0);
             btnClose.Name = "btnClose";
             btnClose.Size = new Size(40, 40);
             btnClose.TabIndex = 0;
