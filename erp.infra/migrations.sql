@@ -67,3 +67,27 @@ VALUES ('20240504220735_20240504.001', '7.0.2');
 
 COMMIT;
 
+START TRANSACTION;
+
+CREATE TABLE `Customers` (
+    `Id` int NOT NULL AUTO_INCREMENT,
+    `FirstName` varchar(100) CHARACTER SET utf8mb4 NOT NULL,
+    `LastName` varchar(100) CHARACTER SET utf8mb4 NOT NULL,
+    `Email` varchar(200) CHARACTER SET utf8mb4 NOT NULL,
+    `PhoneNumber` varchar(20) CHARACTER SET utf8mb4 NOT NULL,
+    `DateOfBirth` datetime(6) NOT NULL,
+    `Address` varchar(100) CHARACTER SET utf8mb4 NOT NULL,
+    `City` varchar(100) CHARACTER SET utf8mb4 NOT NULL,
+    `State` varchar(2) CHARACTER SET utf8mb4 NOT NULL,
+    `PostalCode` varchar(20) CHARACTER SET utf8mb4 NOT NULL,
+    `Country` varchar(100) CHARACTER SET utf8mb4 NOT NULL,
+    `CreatedAt` datetime(6) NOT NULL,
+    `UpdatedAt` datetime(6) NOT NULL,
+    CONSTRAINT `PK_Customers` PRIMARY KEY (`Id`)
+) CHARACTER SET=utf8mb4;
+
+INSERT INTO `__EFMigrationsHistory` (`MigrationId`, `ProductVersion`)
+VALUES ('20240519225022_Customer', '7.0.2');
+
+COMMIT;
+
