@@ -57,9 +57,11 @@
             // 
             txtId.Location = new Point(12, 27);
             txtId.Name = "txtId";
+            txtId.PlaceholderText = "<Automatico>";
             txtId.ReadOnly = true;
             txtId.Size = new Size(100, 23);
             txtId.TabIndex = 1;
+            txtId.TabStop = false;
             // 
             // txtName
             // 
@@ -164,6 +166,7 @@
             txtPrice.Size = new Size(172, 23);
             txtPrice.TabIndex = 3;
             txtPrice.ThousandsSeparator = true;
+            txtPrice.Enter += txtPrice_Enter;
             // 
             // txtStock
             // 
@@ -178,6 +181,7 @@
             txtStock.Size = new Size(172, 23);
             txtStock.TabIndex = 4;
             txtStock.ThousandsSeparator = true;
+            txtStock.Enter += txtStock_Enter;
             // 
             // FormEditProduct
             // 

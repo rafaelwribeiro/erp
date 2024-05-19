@@ -93,7 +93,7 @@
             btnSettings.Padding = new Padding(10, 0, 20, 0);
             btnSettings.Size = new Size(220, 60);
             btnSettings.TabIndex = 5;
-            btnSettings.Text = "Setting";
+            btnSettings.Text = "Configurações";
             btnSettings.TextAlign = ContentAlignment.MiddleLeft;
             btnSettings.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnSettings.UseVisualStyleBackColor = true;
@@ -116,7 +116,7 @@
             btnCustomers.Padding = new Padding(10, 0, 20, 0);
             btnCustomers.Size = new Size(220, 60);
             btnCustomers.TabIndex = 4;
-            btnCustomers.Text = "Customers";
+            btnCustomers.Text = "Clientes";
             btnCustomers.TextAlign = ContentAlignment.MiddleLeft;
             btnCustomers.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnCustomers.UseVisualStyleBackColor = true;
@@ -139,7 +139,7 @@
             btnProducts.Padding = new Padding(10, 0, 20, 0);
             btnProducts.Size = new Size(220, 60);
             btnProducts.TabIndex = 3;
-            btnProducts.Text = "Products";
+            btnProducts.Text = "Produtos";
             btnProducts.TextAlign = ContentAlignment.MiddleLeft;
             btnProducts.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnProducts.UseVisualStyleBackColor = true;
@@ -162,7 +162,7 @@
             btnOrders.Padding = new Padding(10, 0, 20, 0);
             btnOrders.Size = new Size(220, 60);
             btnOrders.TabIndex = 2;
-            btnOrders.Text = "Orders";
+            btnOrders.Text = "Pedidos";
             btnOrders.TextAlign = ContentAlignment.MiddleLeft;
             btnOrders.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnOrders.UseVisualStyleBackColor = true;
@@ -376,7 +376,7 @@
             Name = "FormMainMenu";
             SizeGripStyle = SizeGripStyle.Show;
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Form1";
+            Text = ". . .";
             WindowState = FormWindowState.Maximized;
             Activated += FormMainMenu_Activated;
             panelMenu.ResumeLayout(false);

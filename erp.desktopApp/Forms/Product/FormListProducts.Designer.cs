@@ -30,6 +30,7 @@
         {
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             gridProducts = new DataGridView();
             colId = new DataGridViewTextBoxColumn();
             colName = new DataGridViewTextBoxColumn();
@@ -40,7 +41,6 @@
             btnVizualize = new FontAwesome.Sharp.IconButton();
             btnRemove = new FontAwesome.Sharp.IconButton();
             btnNewProduct = new FontAwesome.Sharp.IconButton();
-            panel2 = new Panel();
             ((System.ComponentModel.ISupportInitialize)gridProducts).BeginInit();
             panel1.SuspendLayout();
             SuspendLayout();
@@ -57,20 +57,29 @@
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = Color.FromArgb(20, 25, 70);
             dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle2.ForeColor = Color.WhiteSmoke;
+            dataGridViewCellStyle2.ForeColor = Color.Gainsboro;
             dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
             gridProducts.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             gridProducts.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             gridProducts.Columns.AddRange(new DataGridViewColumn[] { colId, colName, colPrice, colStock });
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.Gainsboro;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle3.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
+            gridProducts.DefaultCellStyle = dataGridViewCellStyle3;
             gridProducts.GridColor = Color.Gainsboro;
-            gridProducts.Location = new Point(-2, 89);
+            gridProducts.Location = new Point(-2, 44);
             gridProducts.MultiSelect = false;
             gridProducts.Name = "gridProducts";
             gridProducts.ReadOnly = true;
+            gridProducts.RowHeadersVisible = false;
             gridProducts.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            gridProducts.Size = new Size(800, 360);
+            gridProducts.Size = new Size(800, 405);
             gridProducts.TabIndex = 0;
             gridProducts.DoubleClick += gridProducts_DoubleClick;
             // 
@@ -104,7 +113,7 @@
             // 
             // panel1
             // 
-            panel1.BackColor = Color.White;
+            panel1.BackColor = Color.Gainsboro;
             panel1.Controls.Add(btnSearch);
             panel1.Controls.Add(btnVizualize);
             panel1.Controls.Add(btnRemove);
@@ -187,22 +196,12 @@
             btnNewProduct.UseVisualStyleBackColor = true;
             btnNewProduct.Click += btnNewProduct_Click;
             // 
-            // panel2
-            // 
-            panel2.BackColor = Color.White;
-            panel2.Dock = DockStyle.Top;
-            panel2.Location = new Point(0, 45);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(800, 45);
-            panel2.TabIndex = 2;
-            // 
             // FormListProducts
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Gainsboro;
             ClientSize = new Size(800, 450);
-            Controls.Add(panel2);
             Controls.Add(panel1);
             Controls.Add(gridProducts);
             Name = "FormListProducts";
@@ -226,6 +225,5 @@
         private FontAwesome.Sharp.IconButton btnRemove;
         private FontAwesome.Sharp.IconButton btnVizualize;
         private FontAwesome.Sharp.IconButton btnSearch;
-        private Panel panel2;
     }
 }

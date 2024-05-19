@@ -2,7 +2,7 @@
 using erp.application.Commands.DeleteProduct;
 using erp.application.Commands.UpdateProduct;
 using MediatR;
-using System.Windows.Forms.VisualStyles;
+using erp.desktopApp.Extension;
 
 namespace erp.desktopApp.Forms.Product;
 
@@ -13,6 +13,8 @@ public partial class FormEditProduct : Form
     public FormEditProduct(IMediator mediator)
     {
         InitializeComponent();
+        this.AddEnterKeyHandlerToAllControls();
+        this.AddSelectAllTextOnEnterHandler();
         _mediator = mediator;
         IsInsert = true;
     }
@@ -86,5 +88,15 @@ public partial class FormEditProduct : Form
         txtStock.ReadOnly = !IsInsert;
 
         this.Text = IsInsert ? "Create new product" : "Edit product";
+    }
+
+    private void txtPrice_Enter(object sender, EventArgs e)
+    {
+        //txtPrice.Select(0, txtPrice.Text.Length);
+    }
+
+    private void txtStock_Enter(object sender, EventArgs e)
+    {
+        //txtStock.Select(0, txtPrice.Text.Length);
     }
 }

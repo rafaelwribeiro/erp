@@ -1,5 +1,6 @@
 ﻿using erp.application.Commands.Login;
 using MediatR;
+using erp.desktopApp.Extension;
 
 namespace erp.desktopApp.Forms.Login;
 
@@ -12,6 +13,7 @@ public partial class FormLogin : Form
         InitializeComponent();
         this.DialogResult = DialogResult.Cancel;
         _mediator = mediator;
+        this.AddEnterKeyHandlerToAllControls();
     }
 
     private void SetButtonsToDisabled(bool v)

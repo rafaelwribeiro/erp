@@ -144,7 +144,7 @@ public partial class FormMainMenu : Form
         DisableButton();
         leftBorderBtn.Visible = false;
         iconCurrentChildForm.IconChar = IconChar.Home;
-        iconCurrentChildForm.IconColor = Color.MediumPurple;
+        iconCurrentChildForm.IconColor = Color.White;
         lblTitleChildForm.Text = "Home";
     }
 

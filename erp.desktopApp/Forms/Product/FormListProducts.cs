@@ -2,6 +2,7 @@
 using erp.application.Queries.ListProducts;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
+using System.Globalization;
 
 
 
@@ -36,7 +37,7 @@ namespace erp.desktopApp.Forms.Product
 
             _products.ToList().ForEach(p =>
             {
-                gridProducts.Rows.Add(p.Id, p.Name, p.Price, p.StockQuantity);
+                gridProducts.Rows.Add(p.Id, p.Name, p.Price.ToString("C", new CultureInfo("pt-BR")), p.StockQuantity);
             });
         }
 
