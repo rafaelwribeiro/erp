@@ -31,6 +31,7 @@
             button1 = new Button();
             label1 = new Label();
             label2 = new Label();
+            button2 = new Button();
             SuspendLayout();
             // 
             // button1
@@ -61,12 +62,23 @@
             label2.TabIndex = 2;
             label2.Text = "label2";
             // 
+            // button2
+            // 
+            button2.Location = new Point(43, 143);
+            button2.Name = "button2";
+            button2.Size = new Size(75, 23);
+            button2.TabIndex = 3;
+            button2.Text = "New Order";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
+            // 
             // FormDashboard
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Gainsboro;
             ClientSize = new Size(800, 450);
+            Controls.Add(button2);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(button1);
@@ -81,5 +93,6 @@
         private Button button1;
         private Label label1;
         private Label label2;
+        private Button button2;
     }
 }

@@ -6,6 +6,7 @@ public interface IUnitOfWork
     IStockMovementRepository StockMovementRepository { get; }
     IUserRepository UserRepository { get; }
     ICustomerRepository CustomerRepository { get; }
+    IOrderRepository OrderRepository { get; }
     Task CommitAsync();
     Task RollBackAsync();
 }

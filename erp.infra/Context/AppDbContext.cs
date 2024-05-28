@@ -16,6 +16,8 @@ public class AppDbContext : DbContext
     public DbSet<StockMovement> StockMovements { get; set; }
     public DbSet<User> Users { get; set; }
     public DbSet<Customer> Customers { get; set; }
+    public DbSet<Order> Orders { get; set; }
+    public DbSet<OrderItem> OrderItems { get; set; }
 
 
     protected override void OnModelCreating(ModelBuilder builder)
