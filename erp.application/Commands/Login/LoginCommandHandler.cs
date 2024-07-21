@@ -19,7 +19,7 @@ public class LoginCommandHandler : IRequestHandler<LoginCommand, User>
     {
         var user = await _userRepository.GetByFilter(u => u.Username.ToLower().Equals(request.Username.ToLower()));
         
-        if (!request.Password.VerifyPassword(user?.Password ?? "123".EncryptPassword()))
+        if (!request.Password.VerifyPassword(user?.Password))
             throw new BusinessRuleException("User not found or wrong password");
         
         return user;

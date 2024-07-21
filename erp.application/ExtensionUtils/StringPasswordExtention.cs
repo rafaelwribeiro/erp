@@ -26,10 +26,10 @@ public static class StringPasswordExtention
         return hashedPassword;
     }
 
-    public static bool VerifyPassword(this string password, string hashedPassword)
+    public static bool VerifyPassword(this string password, string? hashedPassword)
     {
         // Convert the base64 string back to a byte array
-        byte[] hashWithSalt = Convert.FromBase64String(hashedPassword);
+        byte[] hashWithSalt = Convert.FromBase64String(hashedPassword ?? "123");
 
         // Extract the salt from the byte array
         byte[] salt = new byte[16];

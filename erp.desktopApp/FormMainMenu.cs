@@ -6,6 +6,7 @@ using erp.desktopApp.Forms.Dashboard;
 using erp.desktopApp.Forms.Login;
 using erp.desktopApp.Forms.Product;
 using System.Windows.Forms;
+using erp.desktopApp.Forms.Order;
 
 namespace erp.desktopApp;
 
@@ -114,6 +115,8 @@ public partial class FormMainMenu : Form
     private void btnOrders_Click(object sender, EventArgs e)
     {
         ActivateButton(sender, RGBColors.color3);
+        var form = serviceProvider.GetRequiredService<FormListOrder>();
+        OpenChildForm(form);
     }
 
     private void btnProducts_Click(object sender, EventArgs e)
