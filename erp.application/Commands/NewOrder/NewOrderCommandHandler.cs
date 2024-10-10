@@ -18,6 +18,7 @@ public class NewOrderCommandHandler : IRequestHandler<NewOrderCommand, Order>
     {
         var newOrder = request.Adapt<Order>();
         newOrder.Status = OrderStatus.Pending;
+        
         await _unitOfWork.CommitAsync();
         return newOrder;
     }

@@ -26,5 +26,7 @@ public class AppDbContext : DbContext
         builder.ApplyConfiguration(new StockMovementConfiguration());
         builder.ApplyConfiguration(new UserConfiguration());
         builder.ApplyConfiguration(new CustomerConfiguration());
+        builder.ApplyConfiguration(new OrderConfiguration());
+        builder.ApplyConfiguration(new OrderItemConfiguration());
     }
 }
