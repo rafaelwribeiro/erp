@@ -15,7 +15,8 @@ public class OrderController : ControllerBase
         _mediator = mediator;
     }
 
-    public async Task<IActionResult> PostNewOrder(NewOrderCommand command)
+    [HttpPost]
+	public async Task<IActionResult> PostNewOrder(NewOrderCommand command)
     {
         var order = await _mediator.Send(command);
         return Ok(order);
