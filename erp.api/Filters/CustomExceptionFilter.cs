@@ -15,7 +15,7 @@ public class CustomExceptionFilter : IExceptionFilter
         }
         else if (context.Exception is ArgumentNullException || context.Exception is KeyNotFoundException)
         {
-            context.Result = new NotFoundObjectResult(new { Error = context.Exception?.Message ?? "Recurso não encontrado", context.Exception?.StackTrace });
+            context.Result = new NotFoundObjectResult(new { Error = context.Exception?.Message ?? "Recurso não encontrado" });
             context.ExceptionHandled = true;
         }
         else if (context.Exception is HttpRequestException || context.Exception is InvalidOperationException)

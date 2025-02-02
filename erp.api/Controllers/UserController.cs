@@ -21,4 +21,10 @@ public class UserController : ControllerBase
         var createdUser = await _mediator.Send(command);
         return Ok(new { createdUser.Id, createdUser.Username});
     }
+
+    [HttpGet]
+    public async Task<IActionResult> Get()
+    {
+        return Ok("teste");
+    }
 }

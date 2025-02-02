@@ -1,5 +1,6 @@
 using erp.api;
 using erp.api.Filters;
+using erp.api.Services;
 using erp.crosscutting.AppDependencies;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
@@ -55,6 +56,8 @@ builder.Services.AddSwaggerGen(c =>
 //registro dos serviços
 builder.Services.AddInfrastructure(builder.Configuration);
 builder.Services.AddMvc(o => o.Filters.Add(new CustomExceptionFilter()));
+//builder.Services.AddApplicationInsightsTelemetry();//comentado pra evitar gerar custo na azure
+//builder.Services.AddHostedService<MyBackGroundService>();
 
 
 

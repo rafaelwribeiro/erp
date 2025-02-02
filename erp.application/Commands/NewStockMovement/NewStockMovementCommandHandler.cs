@@ -45,5 +45,7 @@ public class NewStockMovementCommandHandler : IRequestHandler<NewStockMovementCo
     {
         if (request.Amount < 0)
             throw new BusinessRuleException("Stock Movement must be greater then Zero");
+        if (!Enum.IsDefined(typeof(StockMovementType), request.Type))
+            throw new BusinessRuleException("Invalid movment type");
     }
 }
