@@ -1,4 +1,5 @@
 ﻿using erp.domain.Enumerators;
+using erp.domain.Exceptions;
 
 namespace erp.domain.Entities;
 
@@ -24,5 +25,17 @@ public sealed class StockMovement : Entity
         this.Total = amount * unitValue;
         this.Type = type;
         this.Description = description;
+    }
+
+    public void Validate()
+    {
+        if (Amount < 0)
+            throw new BusinessRuleException("Stock Movement must be greater then Zero");
+
+        if (UnitValue < 0)
+            throw new BusinessRuleException("Unit value must be greater then Zero");
+
+        if (!Enum.IsDefined(typeof(StockMovementType), Type))
+            throw new BusinessRuleException("Invalid movment type");
     }
 }

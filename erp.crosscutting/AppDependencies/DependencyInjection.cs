@@ -1,3 +1,4 @@
+using erp.application.Service;
 using erp.domain.Abstractions;
 using erp.infra.Context;
 using erp.infra.Repositories;
@@ -23,6 +24,8 @@ public static class DependencyInjection
         services.AddScoped<IUserRepository, UserRepository>();
         services.AddScoped<IOrderRepository, OrderRepository>();
         services.AddScoped<IUnitOfWork, UnitOfWork>();
+
+        services.AddScoped<IStockMovementService, StockMovementService>();
 
         var myhandlers = AppDomain.CurrentDomain.Load("erp.Application");
         services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(myhandlers));

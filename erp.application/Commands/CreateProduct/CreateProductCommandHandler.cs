@@ -1,5 +1,6 @@
 ﻿using erp.domain.Abstractions;
 using erp.domain.Entities;
+using erp.domain.Enumerators;
 using Mapster;
 using MediatR;
 
@@ -9,16 +10,17 @@ internal class CreateProductCommandHandler : IRequestHandler<CreateProductComman
 {
     
     private readonly IUnitOfWork _unitOfWork;
+    private readonly IStockMovementService _stockMovementService;
 
-    public CreateProductCommandHandler(IUnitOfWork unitOfWork)
+    public CreateProductCommandHandler(IUnitOfWork unitOfWork, IStockMovementService stockMovementService)
     {
         _unitOfWork = unitOfWork;
+        _stockMovementService = stockMovementService;
     }
 
     public async Task<Product> Handle(CreateProductCommand request, CancellationToken cancellationToken)
     {
         var prodRepo = _unitOfWork.ProductRepository;
-
 
         var product = request.Adapt<Product>();
         product.Validate();
@@ -34,11 +36,6 @@ internal class CreateProductCommandHandler : IRequestHandler<CreateProductComman
     private async Task CreateStockMovement(CreateProductCommand request, Product product)
     {
         if (request.StockQuantity <= 0) return;
-
-        var stockRepo = _unitOfWork.StockMovementRepository;
-
-        var stock = new StockMovement(product, request.StockQuantity, request.Cost, domain.Enumerators.StockMovementType.In, "Estoque inicial");
-
-        await stockRepo.Add(stock);
+        await _stockMovementService.MoveStockAsync(product.Id, request.StockQuantity, request.Cost, StockMovementType.In, "Estoque inicial");
     }
 }
