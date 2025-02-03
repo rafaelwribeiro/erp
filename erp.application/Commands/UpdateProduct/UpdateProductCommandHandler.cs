@@ -24,6 +24,8 @@ internal class UpdateProductCommandHandler : IRequestHandler<UpdateProductComman
 
         existingProduct.Validate();
 
+        existingProduct.UpdatedAt = DateTime.Now;
+
         repo.Update(existingProduct);
 
         await _unitOfWork.CommitAsync();

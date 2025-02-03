@@ -10,7 +10,7 @@ public class CustomExceptionFilter : IExceptionFilter
     {
         if (context.Exception is BusinessRuleException)
         {
-            context.Result = new BadRequestObjectResult(new { Error = context.Exception?.Message ?? "Invalid operation", context.Exception?.StackTrace });
+            context.Result = new BadRequestObjectResult(new { Error = context.Exception?.Message ?? "Invalid operation" });
             context.ExceptionHandled = true;
         }
         else if (context.Exception is ArgumentNullException || context.Exception is KeyNotFoundException)

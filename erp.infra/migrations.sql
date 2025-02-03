@@ -143,3 +143,12 @@ VALUES ('20250203004430_StockValue', '7.0.2');
 
 COMMIT;
 
+START TRANSACTION;
+
+ALTER TABLE `Products` ADD `Cost` decimal(65,30) NOT NULL DEFAULT 0.0;
+
+INSERT INTO `__EFMigrationsHistory` (`MigrationId`, `ProductVersion`)
+VALUES ('20250203111538_ProductCost', '7.0.2');
+
+COMMIT;
+

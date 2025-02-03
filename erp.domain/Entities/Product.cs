@@ -5,6 +5,7 @@ namespace erp.domain.Entities;
 public sealed class Product : Entity
 {
     public string Name { get; set; } = "";
+    public decimal Cost { get; set; } = 0;
     public decimal Price { get; set; } = 0;
     public int StockQuantity { get; set; } = 0;
 
@@ -23,8 +24,14 @@ public sealed class Product : Entity
         if (string.IsNullOrEmpty(this.Name))
             throw new BusinessRuleException("Name must be informed");
 
-        if (this.Price < 0)
+        if (this.Cost <= 0)
+            throw new BusinessRuleException("Cost must be greater then Zero.");
+
+        if (this.Price <= 0)
             throw new BusinessRuleException("Price must be greater then Zero.");
+
+        if (this.Price <= this.Cost)
+            throw new BusinessRuleException("Price must be greater then Cost.");
 
         if (this.StockQuantity < 0)
             throw new BusinessRuleException("Stock Quantity must be greater then Zero.");

@@ -27,16 +27,16 @@ public class NewStockMovementCommandHandler : IRequestHandler<NewStockMovementCo
         if (product is null)
             throw new KeyNotFoundException("Product not found");
 
-        var newMovement = request.Adapt<StockMovement>();
+        var newMovement = new StockMovement(product, request.Amount, request.UnitValue, request.Type, request.Description);
 
         if (newMovement.Type == StockMovementType.In)
             product.IncreaseStockQuantity(newMovement.Amount);
         else
             product.DecreaseStockQuantity(newMovement.Amount);
 
-        repoProd.Update(product);
+        product.Cost = request.UnitValue;//por enquanto atribui sempre o ultimo valor unitario de compra
 
-        newMovement.Total = newMovement.Amount * newMovement.UnitValue;
+        repoProd.Update(product);
 
         newMovement = await repoStock.Add(newMovement);
         await _unitOfWork.CommitAsync();

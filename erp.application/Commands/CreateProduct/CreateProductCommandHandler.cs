@@ -37,14 +37,7 @@ internal class CreateProductCommandHandler : IRequestHandler<CreateProductComman
 
         var stockRepo = _unitOfWork.StockMovementRepository;
 
-        var stock = new StockMovement
-        {
-            Product = product,
-            ProductId = product.Id,
-            Amount = request.StockQuantity,
-            Type = domain.Enumerators.StockMovementType.In,
-            Description = "Product created"
-        };
+        var stock = new StockMovement(product, request.StockQuantity, request.Cost, domain.Enumerators.StockMovementType.In, "Estoque inicial");
 
         await stockRepo.Add(stock);
     }
