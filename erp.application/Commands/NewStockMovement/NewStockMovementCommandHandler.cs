@@ -35,6 +35,9 @@ public class NewStockMovementCommandHandler : IRequestHandler<NewStockMovementCo
             product.DecreaseStockQuantity(newMovement.Amount);
 
         repoProd.Update(product);
+
+        newMovement.Total = newMovement.Amount * newMovement.UnitValue;
+
         newMovement = await repoStock.Add(newMovement);
         await _unitOfWork.CommitAsync();
 
@@ -45,6 +48,10 @@ public class NewStockMovementCommandHandler : IRequestHandler<NewStockMovementCo
     {
         if (request.Amount < 0)
             throw new BusinessRuleException("Stock Movement must be greater then Zero");
+
+        if (request.UnitValue < 0)
+            throw new BusinessRuleException("Unit value must be greater then Zero");
+
         if (!Enum.IsDefined(typeof(StockMovementType), request.Type))
             throw new BusinessRuleException("Invalid movment type");
     }

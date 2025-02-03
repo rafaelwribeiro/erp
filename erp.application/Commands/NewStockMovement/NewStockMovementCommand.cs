@@ -8,6 +8,7 @@ public class NewStockMovementCommand : IRequest<StockMovement>
 {
     public int ProductId { get; set; }
     public int Amount { get; set; }
+    public decimal UnitValue { get; set; }
     public StockMovementType Type { get; set; } = StockMovementType.In;
     public string Description { get; set; } = string.Empty;
 }

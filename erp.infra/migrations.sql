@@ -91,3 +91,55 @@ VALUES ('20240519225022_Customer', '7.0.2');
 
 COMMIT;
 
+START TRANSACTION;
+
+CREATE TABLE `Orders` (
+    `Id` int NOT NULL AUTO_INCREMENT,
+    `CustomerId` int NOT NULL,
+    `OrderDate` datetime(6) NOT NULL,
+    `GlobalDiscount` decimal(18,2) NOT NULL,
+    `ShippingCost` decimal(18,2) NOT NULL,
+    `AdditionalExpenses` decimal(18,2) NOT NULL,
+    `Status` int NOT NULL,
+    `CreatedAt` datetime(6) NOT NULL,
+    `UpdatedAt` datetime(6) NOT NULL,
+    CONSTRAINT `PK_Orders` PRIMARY KEY (`Id`),
+    CONSTRAINT `FK_Orders_Customers_CustomerId` FOREIGN KEY (`CustomerId`) REFERENCES `Customers` (`Id`) ON DELETE CASCADE
+) CHARACTER SET=utf8mb4;
+
+CREATE TABLE `OrderItems` (
+    `Id` int NOT NULL AUTO_INCREMENT,
+    `OrderId` int NOT NULL,
+    `ProductId` int NOT NULL,
+    `Quantity` int NOT NULL,
+    `UnitPrice` decimal(18,2) NOT NULL,
+    `Discount` decimal(18,2) NOT NULL,
+    `CreatedAt` datetime(6) NOT NULL,
+    `UpdatedAt` datetime(6) NOT NULL,
+    CONSTRAINT `PK_OrderItems` PRIMARY KEY (`Id`),
+    CONSTRAINT `FK_OrderItems_Orders_OrderId` FOREIGN KEY (`OrderId`) REFERENCES `Orders` (`Id`) ON DELETE CASCADE,
+    CONSTRAINT `FK_OrderItems_Products_ProductId` FOREIGN KEY (`ProductId`) REFERENCES `Products` (`Id`) ON DELETE CASCADE
+) CHARACTER SET=utf8mb4;
+
+CREATE INDEX `IX_OrderItems_OrderId` ON `OrderItems` (`OrderId`);
+
+CREATE INDEX `IX_OrderItems_ProductId` ON `OrderItems` (`ProductId`);
+
+CREATE INDEX `IX_Orders_CustomerId` ON `Orders` (`CustomerId`);
+
+INSERT INTO `__EFMigrationsHistory` (`MigrationId`, `ProductVersion`)
+VALUES ('20240723025532_Order', '7.0.2');
+
+COMMIT;
+
+START TRANSACTION;
+
+ALTER TABLE `StockMovements` ADD `Total` decimal(65,30) NOT NULL DEFAULT 0.0;
+
+ALTER TABLE `StockMovements` ADD `UnitValue` decimal(65,30) NOT NULL DEFAULT 0.0;
+
+INSERT INTO `__EFMigrationsHistory` (`MigrationId`, `ProductVersion`)
+VALUES ('20250203004430_StockValue', '7.0.2');
+
+COMMIT;
+
