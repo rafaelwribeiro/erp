@@ -23,6 +23,7 @@ public class NewOrderCommandHandler : IRequestHandler<NewOrderCommand, Order>
         var order = request.Adapt<Order>();
         order.Status = OrderStatus.Pending;
 
+        
         var newOrder = await orderRepo.Add(order);
         await MoveStock(order, newOrder);
 
@@ -32,9 +33,9 @@ public class NewOrderCommandHandler : IRequestHandler<NewOrderCommand, Order>
 
     private async Task MoveStock(Order order, Order newOrder)
     {
-        order.OrderItems.ToList().ForEach(async i =>
+        foreach (var i in order.OrderItems)
         {
-            await _stockMovementService.MoveStockAsync(i.ProductId, i.Quantity, i.UnitPrice, StockMovementType.Out, $"Venda {newOrder.Id}");
-        });
+            await _stockMovementService.MoveStockAsync(i.ProductId, i.Quantity, i.UnitPrice, StockMovementType.Out, $"Venda {newOrder?.Customer?.FullName ?? ""}");
+        }
     }
 }

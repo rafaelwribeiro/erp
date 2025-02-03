@@ -1,6 +1,9 @@
-﻿namespace erp.domain.Entities;
+﻿using erp.domain.Entities;
+using MediatR;
 
-public class Customer : Entity
+namespace erp.application.Commands.CreateCustomer;
+
+public class CreateCustomerCommand : IRequest<Customer>
 {
     public string FirstName { get; set; } = string.Empty;
     public string LastName { get; set; } = string.Empty;
@@ -12,18 +15,4 @@ public class Customer : Entity
     public string State { get; set; } = string.Empty;
     public string PostalCode { get; set; } = string.Empty;
     public string Country { get; set; } = string.Empty;
-
-    // Optional: A computed property to get the full name of the customer
-    public string FullName => $"{FirstName} {LastName}";
-
-    // Optional: An override of ToString() for better readability
-    public override string ToString()
-    {
-        return $"Customer: {FullName}, Email: {Email}, Phone: {PhoneNumber}";
-    }
-
-    public void Validate()
-    {
-        
-    }
 }

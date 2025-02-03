@@ -23,7 +23,7 @@ public class Order : Entity
     public int CustomerId { get; set; }
     public Customer? Customer { get; set; }
     public DateTime OrderDate { get; set; } = DateTime.Now;
-    public IEnumerable<OrderItem> OrderItems { get; set; } = Enumerable.Empty<OrderItem>();
+    public IList<OrderItem> OrderItems { get; set; } = Enumerable.Empty<OrderItem>().ToList();
     public decimal GlobalDiscount { get; set; } // Desconto global aplicado a todo o pedido
     public decimal ShippingCost { get; set; } // Custo do frete
     public decimal AdditionalExpenses { get; set; } // Despesas acessórias

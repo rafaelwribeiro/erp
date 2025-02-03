@@ -55,7 +55,7 @@ public partial class FormDashboard : Form
                 
                 },
                 new NewOrderItem {
-                    ProductId = 2,
+                    ProductId = 3,
                     Quantity = 10,
                     UnitPrice = 25.50m,
                     Discount = 55
@@ -68,7 +68,7 @@ public partial class FormDashboard : Form
         }
         catch (Exception ex)
         {
-            MessageBox.Show(ex.Message);
+            MessageBox.Show($"{ex.Message}\r\n{ex.InnerException}");
         }
 
     }

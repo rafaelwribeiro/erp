@@ -28,11 +28,14 @@ public class StockMovementService : IStockMovementService
         newMovement.Validate();
 
         if (newMovement.Type == StockMovementType.In)
+        {
             product.IncreaseStockQuantity(newMovement.Amount);
+            product.Cost = unitValue;//por enquanto atribui sempre o ultimo valor unitario de compra
+        }
         else
             product.DecreaseStockQuantity(newMovement.Amount);
 
-        product.Cost = unitValue;//por enquanto atribui sempre o ultimo valor unitario de compra
+        
 
         repoProd.Update(product);
 
