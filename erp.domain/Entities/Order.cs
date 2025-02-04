@@ -31,14 +31,12 @@ public class Order : Entity
     public decimal Total { get; set; }
     public void CalculateTotal()
     {
-        decimal total = 0;
+        Total = 0;
         foreach (var item in OrderItems)
-            total += item.TotalPrice;
-        total -= GlobalDiscount; // Aplicar o desconto global
-        total += ShippingCost; // Adicionar o custo do frete
-        total += AdditionalExpenses; // Adicionar despesas acessórias
-
-        this.Total = total;
+            Total += item.TotalPrice;
+        Total -= GlobalDiscount; // Aplicar o desconto global
+        Total += ShippingCost; // Adicionar o custo do frete
+        Total += AdditionalExpenses; // Adicionar despesas acessórias
     }
 
     public void AddItem(int orderId, Product product, int quantity, decimal discount, decimal unitPrice)

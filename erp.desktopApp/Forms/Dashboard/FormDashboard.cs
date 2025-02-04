@@ -1,5 +1,6 @@
 ﻿using erp.application.Commands.CreateProduct;
 using erp.application.Commands.Orders.AddItem;
+using erp.application.Commands.Orders.ApplyDiscountShippingAditionalExpense;
 using erp.application.Commands.Orders.New;
 using MediatR;
 
@@ -38,16 +39,17 @@ public partial class FormDashboard : Form
     {
         try
         {
+            //inicia novo pedido
             var newOrderCmd = new NewOrderCommand
             {
                 CustomerId = 1
             };
-
             var order = await _mediator.Send(newOrderCmd);
 
             if (order.Status != domain.Entities.OrderStatus.Processing)
                 return;
 
+            //adiciona um item
             var addItemCmd = new AddItemCommand
             {
                 OrderId = order.Id,
@@ -56,11 +58,23 @@ public partial class FormDashboard : Form
                 UnitPrice = 10,
                 Discount = 2
             };
-
             order = await _mediator.Send(addItemCmd);
 
+            //adiciona outro item
+            addItemCmd.ProductId = 3;
+            addItemCmd.Quantity = 5;
+            addItemCmd.UnitPrice = 7;
+            addItemCmd.Discount = 0;
+            order = await _mediator.Send(addItemCmd);
 
-            // 242.96 valor esperado total
+            //aplica desconto e taxa de entrega
+            var applyDiscountGlobal = new ApplyDiscountShippingAditionalExpenseCommand
+            {
+                OrderId = order.Id,
+                GlobalDiscount = 10,
+                ShippingCost = 7
+            };
+            order = await _mediator.Send(applyDiscountGlobal);
         }
         catch (Exception ex)
         {
