@@ -11,5 +11,5 @@ public class OrderItem : Entity
     public int Quantity { get; set; }
     public decimal UnitPrice { get; set; }
     public decimal Discount { get; set; } // Desconto por item
-    public decimal TotalPrice => Quantity * UnitPrice - Discount;
+    public decimal TotalPrice { get; set; }
 }

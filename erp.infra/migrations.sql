@@ -152,3 +152,21 @@ VALUES ('20250203111538_ProductCost', '7.0.2');
 
 COMMIT;
 
+START TRANSACTION;
+
+ALTER TABLE `Orders` ADD `Total` decimal(65,30) NOT NULL DEFAULT 0.0;
+
+INSERT INTO `__EFMigrationsHistory` (`MigrationId`, `ProductVersion`)
+VALUES ('20250203211121_OrderTotal', '7.0.2');
+
+COMMIT;
+
+START TRANSACTION;
+
+ALTER TABLE `OrderItems` ADD `TotalPrice` decimal(65,30) NOT NULL DEFAULT 0.0;
+
+INSERT INTO `__EFMigrationsHistory` (`MigrationId`, `ProductVersion`)
+VALUES ('20250204003813_OrderItemTotalPrice', '7.0.2');
+
+COMMIT;
+

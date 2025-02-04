@@ -1,5 +1,6 @@
 ﻿using erp.application.Commands.CreateProduct;
-using erp.application.Commands.NewOrder;
+using erp.application.Commands.Orders.AddItem;
+using erp.application.Commands.Orders.New;
 using MediatR;
 
 namespace erp.desktopApp.Forms.Dashboard;
@@ -37,32 +38,27 @@ public partial class FormDashboard : Form
     {
         try
         {
-            var command = new NewOrderCommand
+            var newOrderCmd = new NewOrderCommand
             {
-                CustomerId = 1,
-                AdditionalExpenses = 20,
-                GlobalDiscount = 10,
-                ShippingCost = 3
+                CustomerId = 1
             };
 
-            command.OrderItems = new List<NewOrderItem>
+            var order = await _mediator.Send(newOrderCmd);
+
+            if (order.Status != domain.Entities.OrderStatus.Processing)
+                return;
+
+            var addItemCmd = new AddItemCommand
             {
-                new NewOrderItem {
-                    ProductId = 1,
-                    Quantity = 4,
-                    UnitPrice = 9.99m,
-                    Discount = 10
-                
-                },
-                new NewOrderItem {
-                    ProductId = 3,
-                    Quantity = 10,
-                    UnitPrice = 25.50m,
-                    Discount = 55
-                }
+                OrderId = order.Id,
+                ProductId = 1,
+                Quantity = 10,
+                UnitPrice = 10,
+                Discount = 2
             };
 
-            var order = await _mediator.Send(command);
+            order = await _mediator.Send(addItemCmd);
+
 
             // 242.96 valor esperado total
         }

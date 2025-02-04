@@ -46,7 +46,7 @@ namespace erp.desktopApp.Forms.Order
                 gridOrders.Rows.Add(p.Id,
                         p.Customer?.FullName,
                         p.GlobalDiscount.ToString("C", new CultureInfo("pt-BR")),
-                        p.TotalAmount.ToString("C", new CultureInfo("pt-BR")));
+                        p.Total.ToString("C", new CultureInfo("pt-BR")));
             });
         }
     }

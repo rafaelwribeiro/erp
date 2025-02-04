@@ -4,7 +4,7 @@ using erp.domain.Enumerators;
 using Mapster;
 using MediatR;
 
-namespace erp.application.Commands.NewOrder;
+namespace erp.application.Commands.Orders.New;
 
 public class NewOrderCommandHandler : IRequestHandler<NewOrderCommand, Order>
 {
@@ -21,21 +21,18 @@ public class NewOrderCommandHandler : IRequestHandler<NewOrderCommand, Order>
     {
         var orderRepo = _unitOfWork.OrderRepository;
         var order = request.Adapt<Order>();
-        order.Status = OrderStatus.Pending;
+        order.Status = OrderStatus.Processing;
 
-        
         var newOrder = await orderRepo.Add(order);
-        await MoveStock(order, newOrder);
+        //await MoveStock(newOrder);
 
         await _unitOfWork.CommitAsync();
         return newOrder;
     }
 
-    private async Task MoveStock(Order order, Order newOrder)
+    private async Task MoveStock(Order newOrder)
     {
-        foreach (var i in order.OrderItems)
-        {
+        foreach (var i in newOrder.OrderItems)
             await _stockMovementService.MoveStockAsync(i.ProductId, i.Quantity, i.UnitPrice, StockMovementType.Out, $"Venda {newOrder?.Customer?.FullName ?? ""}");
-        }
     }
 }

@@ -1,4 +1,4 @@
-﻿using erp.application.Commands.NewOrder;
+﻿using erp.application.Commands.Orders.New;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
