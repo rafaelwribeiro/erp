@@ -7,6 +7,7 @@ public interface IUnitOfWork
     IUserRepository UserRepository { get; }
     ICustomerRepository CustomerRepository { get; }
     IOrderRepository OrderRepository { get; }
+    IPaymentMethodRepository PaymentMethodRepository { get; }
     Task CommitAsync();
     Task RollBackAsync();
 }

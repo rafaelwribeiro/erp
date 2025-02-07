@@ -36,6 +36,9 @@ public class OrderConfiguration : IEntityTypeConfiguration<Order>
                .HasForeignKey(oi => oi.OrderId)
                .OnDelete(DeleteBehavior.Cascade);
 
-        //builder.Ignore(o => o.TotalAmount); // Ignorar a propriedade calculada
+        builder.HasMany(o => o.Payments)
+               .WithOne(oi => oi.Order)
+               .HasForeignKey(oi => oi.OrderId)
+               .OnDelete(DeleteBehavior.Cascade);
     }
 }

@@ -170,3 +170,38 @@ VALUES ('20250204003813_OrderItemTotalPrice', '7.0.2');
 
 COMMIT;
 
+START TRANSACTION;
+
+CREATE TABLE `PaymentMethods` (
+    `Id` int NOT NULL AUTO_INCREMENT,
+    `Type` int NOT NULL,
+    `Details` varchar(255) CHARACTER SET utf8mb4 NOT NULL,
+    `CreatedAt` datetime(6) NOT NULL,
+    `UpdatedAt` datetime(6) NOT NULL,
+    CONSTRAINT `PK_PaymentMethods` PRIMARY KEY (`Id`)
+) CHARACTER SET=utf8mb4;
+
+CREATE TABLE `OrderPayments` (
+    `Id` int NOT NULL AUTO_INCREMENT,
+    `OrderId` int NOT NULL,
+    `PaymentMethodId` int NOT NULL,
+    `Status` int NOT NULL,
+    `Amount` decimal(65,30) NOT NULL,
+    `ReceivedAmount` decimal(65,30) NOT NULL,
+    `PaidAt` datetime(6) NULL,
+    `CreatedAt` datetime(6) NOT NULL,
+    `UpdatedAt` datetime(6) NOT NULL,
+    CONSTRAINT `PK_OrderPayments` PRIMARY KEY (`Id`),
+    CONSTRAINT `FK_OrderPayments_Orders_OrderId` FOREIGN KEY (`OrderId`) REFERENCES `Orders` (`Id`) ON DELETE CASCADE,
+    CONSTRAINT `FK_OrderPayments_PaymentMethods_PaymentMethodId` FOREIGN KEY (`PaymentMethodId`) REFERENCES `PaymentMethods` (`Id`) ON DELETE CASCADE
+) CHARACTER SET=utf8mb4;
+
+CREATE INDEX `IX_OrderPayments_OrderId` ON `OrderPayments` (`OrderId`);
+
+CREATE INDEX `IX_OrderPayments_PaymentMethodId` ON `OrderPayments` (`PaymentMethodId`);
+
+INSERT INTO `__EFMigrationsHistory` (`MigrationId`, `ProductVersion`)
+VALUES ('20250206191536_PaymentMethods', '7.0.2');
+
+COMMIT;
+

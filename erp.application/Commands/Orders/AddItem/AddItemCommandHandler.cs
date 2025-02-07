@@ -22,11 +22,14 @@ internal class AddItemCommandHandler : IRequestHandler<AddItemCommand, Order>
         if(order is null)
             throw new KeyNotFoundException($"Order with Id {request.OrderId} does not exists");
 
+        if (!order.IsOrderInProgress())
+            throw new KeyNotFoundException($"Invalid order status for this operation");
+
         var product = await repoProduct.GetById(request.ProductId);
         if(product is null)
             throw new KeyNotFoundException($"Product with Id {request.ProductId} does not exists");
 
-        order.AddItem(order.Id, product, request.Quantity, request.Discount, request.UnitPrice);
+        order.AddItem(product, request.Quantity, request.Discount, request.UnitPrice);
 
         repoOrder.Update(order);
 

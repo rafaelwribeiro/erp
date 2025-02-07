@@ -18,7 +18,8 @@ public class AppDbContext : DbContext
     public DbSet<Customer> Customers { get; set; }
     public DbSet<Order> Orders { get; set; }
     public DbSet<OrderItem> OrderItems { get; set; }
-
+    public DbSet<OrderPayment> OrderPayments { get; set; }
+    public DbSet<PaymentMethod> PaymentMethods { get; set; }
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
@@ -28,5 +29,6 @@ public class AppDbContext : DbContext
         builder.ApplyConfiguration(new CustomerConfiguration());
         builder.ApplyConfiguration(new OrderConfiguration());
         builder.ApplyConfiguration(new OrderItemConfiguration());
+        builder.ApplyConfiguration(new PaymentMethodConfiguration());
     }
 }

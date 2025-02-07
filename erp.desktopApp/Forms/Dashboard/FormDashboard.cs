@@ -1,7 +1,10 @@
 ﻿using erp.application.Commands.CreateProduct;
 using erp.application.Commands.Orders.AddItem;
+using erp.application.Commands.Orders.AddPaymentMethod;
 using erp.application.Commands.Orders.ApplyDiscountShippingAditionalExpense;
+using erp.application.Commands.Orders.ConfirmOrder;
 using erp.application.Commands.Orders.New;
+using erp.application.Commands.Orders.WaitingPayment;
 using MediatR;
 
 namespace erp.desktopApp.Forms.Dashboard;
@@ -46,7 +49,7 @@ public partial class FormDashboard : Form
             };
             var order = await _mediator.Send(newOrderCmd);
 
-            if (order.Status != domain.Entities.OrderStatus.Processing)
+            if (order.Status != domain.Entities.OrderStatus.Created)
                 return;
 
             //adiciona um item
@@ -61,10 +64,13 @@ public partial class FormDashboard : Form
             order = await _mediator.Send(addItemCmd);
 
             //adiciona outro item
-            addItemCmd.ProductId = 3;
-            addItemCmd.Quantity = 5;
-            addItemCmd.UnitPrice = 7;
-            addItemCmd.Discount = 0;
+            addItemCmd = new AddItemCommand
+            {
+                OrderId = order.Id,
+                ProductId = 3,
+                Quantity = 5,
+                UnitPrice = 7
+            };
             order = await _mediator.Send(addItemCmd);
 
             //aplica desconto e taxa de entrega
@@ -75,6 +81,41 @@ public partial class FormDashboard : Form
                 ShippingCost = 7
             };
             order = await _mediator.Send(applyDiscountGlobal);
+
+            //move pedido para aguardando pagamento
+            var moveToWaitingPayment = new MoveOrderToAwaitingPaymentCommand()
+            {
+                OrderId = order.Id
+            };
+            order = await _mediator.Send(moveToWaitingPayment);
+
+            //add pagamento em cartão
+            var addPaymentCreditCard = new AddPaymentMethodCommand
+            {
+                OrderId = order.Id,
+                Amount = 10,
+                PaymentMethodId = 1,
+            };
+            await _mediator.Send(addPaymentCreditCard);
+            
+            //add pagamento em cartão
+            var addPaymentCash = new AddPaymentMethodCommand
+            {
+                OrderId = order.Id,
+                Amount = 102,
+                ReceivedAmount = 105,
+                PaymentMethodId = 4,
+            };
+            await _mediator.Send(addPaymentCash);
+
+
+            //confirmar order
+            var confirm = new ConfirmOrderCommand
+            {
+                OrderId = order.Id
+            };
+
+            order = await _mediator.Send(confirm);
         }
         catch (Exception ex)
         {

@@ -1,4 +1,6 @@
-﻿namespace erp.domain.Entities;
+﻿using erp.domain.Exceptions;
+
+namespace erp.domain.Entities;
 
 public class Customer : Entity
 {
@@ -24,6 +26,10 @@ public class Customer : Entity
 
     public void Validate()
     {
-        
+        if (string.IsNullOrWhiteSpace(FirstName) || string.IsNullOrWhiteSpace(LastName))
+            throw new BusinessRuleException("O nome do cliente é obrigatório.");
+
+        if (!Email.Contains("@"))
+            throw new BusinessRuleException("Email inválido.");
     }
 }

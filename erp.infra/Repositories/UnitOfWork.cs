@@ -10,6 +10,7 @@ public class UnitOfWork : IUnitOfWork, IDisposable
     private IUserRepository? _userRepository;
     private ICustomerRepository? _customerRepository;
     private IOrderRepository? _orderRepository;
+    private IPaymentMethodRepository _paymentMethodRepository;
     private readonly AppDbContext _context;
 
     public UnitOfWork(AppDbContext context)
@@ -55,6 +56,14 @@ public class UnitOfWork : IUnitOfWork, IDisposable
         get
         {
             return _orderRepository = _orderRepository ?? new OrderRepository(_context);
+        }
+    }
+
+    public IPaymentMethodRepository PaymentMethodRepository
+    {
+        get
+        {
+            return _paymentMethodRepository = _paymentMethodRepository ?? new PaymentMethodRepository(_context);
         }
     }
 
