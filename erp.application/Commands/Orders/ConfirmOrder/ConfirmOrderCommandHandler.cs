@@ -32,13 +32,13 @@ internal class ConfirmOrderCommandHandler : IRequestHandler<ConfirmOrderCommand,
         repoOrder.Update(order);
 
 
-        //invoice here
-
         //Reciveables
 
         //Cash Register or Transaction
 
         await MoveStock(order);
+
+        //invoice here?
 
         await _unitOfWork.CommitAsync();
 

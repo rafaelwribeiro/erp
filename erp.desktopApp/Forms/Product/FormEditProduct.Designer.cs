@@ -39,9 +39,12 @@
             btnSave = new FontAwesome.Sharp.IconButton();
             txtPrice = new NumericUpDown();
             txtStock = new NumericUpDown();
+            txtCost = new NumericUpDown();
+            label5 = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)txtPrice).BeginInit();
             ((System.ComponentModel.ISupportInitialize)txtStock).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)txtCost).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -103,7 +106,7 @@
             panel1.Controls.Add(btnDel);
             panel1.Controls.Add(btnSave);
             panel1.Dock = DockStyle.Bottom;
-            panel1.Location = new Point(0, 148);
+            panel1.Location = new Point(0, 191);
             panel1.Name = "panel1";
             panel1.Size = new Size(377, 41);
             panel1.TabIndex = 8;
@@ -124,7 +127,8 @@
             btnDel.Name = "btnDel";
             btnDel.Padding = new Padding(10, 0, 20, 0);
             btnDel.Size = new Size(110, 41);
-            btnDel.TabIndex = 4;
+            btnDel.TabIndex = 7;
+            btnDel.TabStop = false;
             btnDel.Text = "Delete";
             btnDel.TextAlign = ContentAlignment.MiddleLeft;
             btnDel.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -147,7 +151,8 @@
             btnSave.Name = "btnSave";
             btnSave.Padding = new Padding(10, 0, 20, 0);
             btnSave.Size = new Size(104, 41);
-            btnSave.TabIndex = 3;
+            btnSave.TabIndex = 6;
+            btnSave.TabStop = false;
             btnSave.Text = "Save";
             btnSave.TextAlign = ContentAlignment.MiddleLeft;
             btnSave.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -183,11 +188,35 @@
             txtStock.ThousandsSeparator = true;
             txtStock.Enter += txtStock_Enter;
             // 
+            // txtCost
+            // 
+            txtCost.DecimalPlaces = 2;
+            txtCost.ImeMode = ImeMode.NoControl;
+            txtCost.Increment = new decimal(new int[] { 0, 0, 0, 0 });
+            txtCost.Location = new Point(12, 159);
+            txtCost.Maximum = new decimal(new int[] { 999999999, 0, 0, 0 });
+            txtCost.Name = "txtCost";
+            txtCost.RightToLeft = RightToLeft.Yes;
+            txtCost.Size = new Size(172, 23);
+            txtCost.TabIndex = 5;
+            txtCost.ThousandsSeparator = true;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(12, 141);
+            label5.Name = "label5";
+            label5.Size = new Size(31, 15);
+            label5.TabIndex = 10;
+            label5.Text = "Cost";
+            // 
             // FormEditProduct
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(377, 189);
+            ClientSize = new Size(377, 232);
+            Controls.Add(label5);
+            Controls.Add(txtCost);
             Controls.Add(txtStock);
             Controls.Add(txtPrice);
             Controls.Add(panel1);
@@ -208,6 +237,7 @@
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)txtPrice).EndInit();
             ((System.ComponentModel.ISupportInitialize)txtStock).EndInit();
+            ((System.ComponentModel.ISupportInitialize)txtCost).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -225,5 +255,7 @@
         private FontAwesome.Sharp.IconButton btnDel;
         private NumericUpDown txtPrice;
         private NumericUpDown txtStock;
+        private NumericUpDown txtCost;
+        private Label label5;
     }
 }

@@ -75,6 +75,7 @@
             btnSearch.Text = "Atualizar";
             btnSearch.TextImageRelation = TextImageRelation.ImageAboveText;
             btnSearch.UseVisualStyleBackColor = true;
+            btnSearch.Click += btnSearch_Click;
             // 
             // btnVizualize
             // 

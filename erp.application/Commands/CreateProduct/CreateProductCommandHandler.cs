@@ -25,9 +25,11 @@ internal class CreateProductCommandHandler : IRequestHandler<CreateProductComman
         var product = request.Adapt<Product>();
         product.Validate();
 
-        await prodRepo.Add(product);
-        await CreateStockMovement(request, product);
+        product = await prodRepo.Add(product);
 
+        await _unitOfWork.CommitAsync();
+
+        await CreateStockMovement(request, product);
         await _unitOfWork.CommitAsync();
 
         return product;

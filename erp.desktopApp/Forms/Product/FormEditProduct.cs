@@ -25,6 +25,7 @@ public partial class FormEditProduct : Form
         txtId.Text = product.Id.ToString();
         txtName.Text = product.Name.ToString();
         txtPrice.Text = product.Price.ToString();
+        txtCost.Text = product.Cost.ToString();
         txtStock.Text = product.StockQuantity.ToString();
     }
 
@@ -52,7 +53,8 @@ public partial class FormEditProduct : Form
         {
             Id = int.Parse(txtId.Text),
             Name = txtName.Text,
-            Price = txtPrice.Value
+            Price = txtPrice.Value,
+            Cost = txtCost.Value,
         };
         await _mediator.Send(command);
     }
@@ -63,6 +65,7 @@ public partial class FormEditProduct : Form
         {
             Name = txtName.Text,
             Price = txtPrice.Value,
+            Cost = txtCost.Value,
             StockQuantity = Convert.ToInt32(txtStock.Value)
         };
         var product = await _mediator.Send(command);

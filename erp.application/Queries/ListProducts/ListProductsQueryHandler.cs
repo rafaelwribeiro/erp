@@ -15,8 +15,12 @@ public class ListProductsQueryHandler : IRequestHandler<ListProductsQuery, IEnum
 
     public async Task<IEnumerable<Product>> Handle(ListProductsQuery request, CancellationToken cancellationToken)
     {
-        var products = await _repository.GetManyByFilter(p => (string.IsNullOrEmpty(request.Name) || p.Name.Contains(request.Name)));
+        var products = await _repository.GetManyByFilter(p =>
+            (string.IsNullOrEmpty(request.Name) || p.Name.Contains(request.Name)) &&
+            (request.Id == 0 || p.Id == request.Id)
+        );
         
         return products;
     }
 }
+

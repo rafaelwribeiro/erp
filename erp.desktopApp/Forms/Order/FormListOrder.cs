@@ -49,5 +49,10 @@ namespace erp.desktopApp.Forms.Order
                         p.Total.ToString("C", new CultureInfo("pt-BR")));
             });
         }
+
+        private async void btnSearch_Click(object sender, EventArgs e)
+        {
+            await LoadGrid();
+        }
     }
 }
