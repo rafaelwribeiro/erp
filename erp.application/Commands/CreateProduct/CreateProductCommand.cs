@@ -9,4 +9,5 @@ public class CreateProductCommand : IRequest<Product>
     public decimal Cost { get; set; } = 0;
     public decimal Price { get; set; } = 0;
     public int StockQuantity { get; set; } = 0;
+    public string BarCode { get; set; } = string.Empty;
 }

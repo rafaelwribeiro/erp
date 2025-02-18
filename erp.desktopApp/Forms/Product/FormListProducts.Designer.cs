@@ -32,15 +32,16 @@
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             gridProducts = new DataGridView();
-            colId = new DataGridViewTextBoxColumn();
-            colName = new DataGridViewTextBoxColumn();
-            colPrice = new DataGridViewTextBoxColumn();
-            colStock = new DataGridViewTextBoxColumn();
             panel1 = new Panel();
             btnSearch = new FontAwesome.Sharp.IconButton();
             btnVizualize = new FontAwesome.Sharp.IconButton();
             btnRemove = new FontAwesome.Sharp.IconButton();
             btnNewProduct = new FontAwesome.Sharp.IconButton();
+            colId = new DataGridViewTextBoxColumn();
+            colName = new DataGridViewTextBoxColumn();
+            BarCode = new DataGridViewTextBoxColumn();
+            colPrice = new DataGridViewTextBoxColumn();
+            colStock = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)gridProducts).BeginInit();
             panel1.SuspendLayout();
             SuspendLayout();
@@ -63,7 +64,7 @@
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
             gridProducts.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             gridProducts.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            gridProducts.Columns.AddRange(new DataGridViewColumn[] { colId, colName, colPrice, colStock });
+            gridProducts.Columns.AddRange(new DataGridViewColumn[] { colId, colName, BarCode, colPrice, colStock });
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = Color.Gainsboro;
             dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
@@ -81,35 +82,8 @@
             gridProducts.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             gridProducts.Size = new Size(800, 405);
             gridProducts.TabIndex = 0;
+            gridProducts.CellContentClick += gridProducts_CellContentClick;
             gridProducts.DoubleClick += gridProducts_DoubleClick;
-            // 
-            // colId
-            // 
-            colId.HeaderText = "ID";
-            colId.Name = "colId";
-            colId.ReadOnly = true;
-            colId.Resizable = DataGridViewTriState.False;
-            // 
-            // colName
-            // 
-            colName.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            colName.HeaderText = "Name";
-            colName.Name = "colName";
-            colName.ReadOnly = true;
-            // 
-            // colPrice
-            // 
-            colPrice.HeaderText = "Price";
-            colPrice.Name = "colPrice";
-            colPrice.ReadOnly = true;
-            colPrice.Resizable = DataGridViewTriState.False;
-            // 
-            // colStock
-            // 
-            colStock.HeaderText = "Stock";
-            colStock.Name = "colStock";
-            colStock.ReadOnly = true;
-            colStock.Resizable = DataGridViewTriState.False;
             // 
             // panel1
             // 
@@ -196,6 +170,40 @@
             btnNewProduct.UseVisualStyleBackColor = true;
             btnNewProduct.Click += btnNewProduct_Click;
             // 
+            // colId
+            // 
+            colId.HeaderText = "ID";
+            colId.Name = "colId";
+            colId.ReadOnly = true;
+            colId.Resizable = DataGridViewTriState.False;
+            // 
+            // colName
+            // 
+            colName.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            colName.HeaderText = "Name";
+            colName.Name = "colName";
+            colName.ReadOnly = true;
+            // 
+            // BarCode
+            // 
+            BarCode.HeaderText = "Bar Code";
+            BarCode.Name = "BarCode";
+            BarCode.ReadOnly = true;
+            // 
+            // colPrice
+            // 
+            colPrice.HeaderText = "Price";
+            colPrice.Name = "colPrice";
+            colPrice.ReadOnly = true;
+            colPrice.Resizable = DataGridViewTriState.False;
+            // 
+            // colStock
+            // 
+            colStock.HeaderText = "Stock";
+            colStock.Name = "colStock";
+            colStock.ReadOnly = true;
+            colStock.Resizable = DataGridViewTriState.False;
+            // 
             // FormListProducts
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -217,13 +225,14 @@
 
         private DataGridView gridProducts;
         private Panel panel1;
-        private DataGridViewTextBoxColumn colId;
-        private DataGridViewTextBoxColumn colName;
-        private DataGridViewTextBoxColumn colPrice;
-        private DataGridViewTextBoxColumn colStock;
         private FontAwesome.Sharp.IconButton btnNewProduct;
         private FontAwesome.Sharp.IconButton btnRemove;
         private FontAwesome.Sharp.IconButton btnVizualize;
         private FontAwesome.Sharp.IconButton btnSearch;
+        private DataGridViewTextBoxColumn colId;
+        private DataGridViewTextBoxColumn colName;
+        private DataGridViewTextBoxColumn BarCode;
+        private DataGridViewTextBoxColumn colPrice;
+        private DataGridViewTextBoxColumn colStock;
     }
 }

@@ -37,7 +37,7 @@ namespace erp.desktopApp.Forms.Product
 
             _products.ToList().ForEach(p =>
             {
-                gridProducts.Rows.Add(p.Id, p.Name, p.Price.ToString("C", new CultureInfo("pt-BR")), p.StockQuantity);
+                gridProducts.Rows.Add(p.Id, p.Name, p.BarCode, p.Price.ToString("C", new CultureInfo("pt-BR")), p.StockQuantity);
             });
         }
 
@@ -96,6 +96,11 @@ namespace erp.desktopApp.Forms.Product
         private async void btnSearch_Click(object sender, EventArgs e)
         {
             await LoadGrid();
+        }
+
+        private void gridProducts_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

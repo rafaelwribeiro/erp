@@ -8,6 +8,7 @@ public sealed class Product : Entity
     public decimal Cost { get; set; } = 0;
     public decimal Price { get; set; } = 0;
     public int StockQuantity { get; set; } = 0;
+    public string BarCode { get; set; } = string.Empty;
 
     public void IncreaseStockQuantity(int amount)
     {
@@ -35,6 +36,8 @@ public sealed class Product : Entity
 
         if (this.StockQuantity < 0)
             throw new BusinessRuleException("Stock Quantity must be greater then Zero.");
-
+        
+        if (this.BarCode.Length < 8)
+            throw new BusinessRuleException("BarCode should have at least 8 characteres.");
     }
 }

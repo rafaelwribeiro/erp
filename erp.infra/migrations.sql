@@ -205,3 +205,23 @@ VALUES ('20250206191536_PaymentMethods', '7.0.2');
 
 COMMIT;
 
+START TRANSACTION;
+
+ALTER TABLE `Products` ADD `BarCode` varchar(20) CHARACTER SET utf8mb4 NOT NULL DEFAULT '';
+
+CREATE INDEX `IX_Products_BarCode` ON `Products` (`BarCode`);
+
+INSERT INTO `__EFMigrationsHistory` (`MigrationId`, `ProductVersion`)
+VALUES ('20250218014102_ProductBarCode', '7.0.2');
+
+COMMIT;
+
+START TRANSACTION;
+
+ALTER TABLE `Products` MODIFY COLUMN `Cost` DECIMAL(10,4) NOT NULL DEFAULT 0.0;
+
+INSERT INTO `__EFMigrationsHistory` (`MigrationId`, `ProductVersion`)
+VALUES ('20250218154035_ProductCostSize', '7.0.2');
+
+COMMIT;
+

@@ -73,6 +73,17 @@ public partial class FormDashboard : Form
             };
             order = await _mediator.Send(addItemCmd);
 
+
+            //adiciona outro item
+            addItemCmd = new AddItemCommand
+            {
+                OrderId = order.Id,
+                ProductId = 4,
+                Quantity = 5,
+                UnitPrice = 20
+            };
+            order = await _mediator.Send(addItemCmd);
+
             //aplica desconto e taxa de entrega
             var applyDiscountGlobal = new ApplyDiscountShippingAditionalExpenseCommand
             {
@@ -102,7 +113,7 @@ public partial class FormDashboard : Form
             var addPaymentCash = new AddPaymentMethodCommand
             {
                 OrderId = order.Id,
-                Amount = 102,
+                Amount = 202,
                 ReceivedAmount = 105,
                 PaymentMethodId = 4,
             };
