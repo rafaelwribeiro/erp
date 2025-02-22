@@ -1,12 +1,11 @@
 ﻿using erp.domain.Abstractions;
 using erp.domain.Entities;
-using erp.domain.Enumerators;
 using Mapster;
 using MediatR;
 
 namespace erp.application.Commands.Orders.New;
 
-public class NewOrderCommandHandler : IRequestHandler<NewOrderCommand, Order>
+internal class NewOrderCommandHandler : IRequestHandler<NewOrderCommand, Order>
 {
     private readonly IUnitOfWork _unitOfWork;
 
@@ -18,11 +17,14 @@ public class NewOrderCommandHandler : IRequestHandler<NewOrderCommand, Order>
     public async Task<Order> Handle(NewOrderCommand request, CancellationToken cancellationToken)
     {
         var orderRepo = _unitOfWork.OrderRepository;
-        var order = request.Adapt<Order>();
+
+        var order = await orderRepo.GetByFilter(o => o.Status == OrderStatus.Created);
+        if (order != null) return order; //temporário, remover isto quando existir o controle de caixa 
+
+        order = request.Adapt<Order>();
         order.Status = OrderStatus.Created;
 
         var newOrder = await orderRepo.Add(order);
-        //await MoveStock(newOrder);
 
         await _unitOfWork.CommitAsync();
         return newOrder;

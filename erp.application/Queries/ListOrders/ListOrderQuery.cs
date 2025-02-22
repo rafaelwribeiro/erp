@@ -7,4 +7,5 @@ public class ListOrderQuery : IRequest<IEnumerable<Order>>
 {
     public DateTime? FromDate { get; set; }
     public DateTime? ToDate { get; set; }
+    public int Id { get; set; } = 0;
 }

@@ -4,7 +4,7 @@ using MediatR;
 
 namespace erp.application.Queries.ListOrders;
 
-public class ListOrderQueryHandler : IRequestHandler<ListOrderQuery, IEnumerable<Order>>
+internal class ListOrderQueryHandler : IRequestHandler<ListOrderQuery, IEnumerable<Order>>
 {
     private IOrderRepository _orderRepository;
 
@@ -17,7 +17,11 @@ public class ListOrderQueryHandler : IRequestHandler<ListOrderQuery, IEnumerable
     {
         var fromDate = request?.FromDate ?? DateTime.MinValue;
         var toDate = request?.ToDate ?? DateTime.MaxValue;
-        var list = await _orderRepository.GetManyByFilter(o => o.OrderDate >= fromDate && o.OrderDate <= toDate);
+        var list = await _orderRepository.GetManyByFilter(
+            o =>
+                (o.OrderDate >= fromDate && o.OrderDate <= toDate) &&
+                (request.Id == 0 || o.Id == request.Id)
+        );
         return list;
     }
 }

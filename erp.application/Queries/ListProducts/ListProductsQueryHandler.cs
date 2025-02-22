@@ -17,6 +17,7 @@ public class ListProductsQueryHandler : IRequestHandler<ListProductsQuery, IEnum
     {
         var products = await _repository.GetManyByFilter(p =>
             (string.IsNullOrEmpty(request.Name) || p.Name.Contains(request.Name)) &&
+            (string.IsNullOrEmpty(request.Barcode) || p.BarCode.Contains(request.Barcode)) &&
             (request.Id == 0 || p.Id == request.Id)
         );
         

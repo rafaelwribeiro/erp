@@ -39,6 +39,7 @@
             gridOrders = new DataGridView();
             colId = new DataGridViewTextBoxColumn();
             Customer = new DataGridViewTextBoxColumn();
+            colStatus = new DataGridViewTextBoxColumn();
             Discount = new DataGridViewTextBoxColumn();
             Total = new DataGridViewTextBoxColumn();
             panel1.SuspendLayout();
@@ -127,6 +128,7 @@
             btnNewProduct.Text = "Novo";
             btnNewProduct.TextImageRelation = TextImageRelation.ImageAboveText;
             btnNewProduct.UseVisualStyleBackColor = true;
+            btnNewProduct.Click += btnNewProduct_Click;
             // 
             // gridOrders
             // 
@@ -146,7 +148,7 @@
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
             gridOrders.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             gridOrders.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            gridOrders.Columns.AddRange(new DataGridViewColumn[] { colId, Customer, Discount, Total });
+            gridOrders.Columns.AddRange(new DataGridViewColumn[] { colId, Customer, colStatus, Discount, Total });
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = Color.Gainsboro;
             dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
@@ -164,6 +166,7 @@
             gridOrders.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             gridOrders.Size = new Size(800, 405);
             gridOrders.TabIndex = 2;
+            gridOrders.CellDoubleClick += gridOrders_CellDoubleClick;
             // 
             // colId
             // 
@@ -178,6 +181,12 @@
             Customer.HeaderText = "Customer";
             Customer.Name = "Customer";
             Customer.ReadOnly = true;
+            // 
+            // colStatus
+            // 
+            colStatus.HeaderText = "Status";
+            colStatus.Name = "colStatus";
+            colStatus.ReadOnly = true;
             // 
             // Discount
             // 
@@ -219,6 +228,7 @@
         private DataGridView gridOrders;
         private DataGridViewTextBoxColumn colId;
         private DataGridViewTextBoxColumn Customer;
+        private DataGridViewTextBoxColumn colStatus;
         private DataGridViewTextBoxColumn Discount;
         private DataGridViewTextBoxColumn Total;
     }

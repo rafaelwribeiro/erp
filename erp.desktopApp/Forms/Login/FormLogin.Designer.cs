@@ -74,11 +74,11 @@
             // 
             label4.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             label4.AutoSize = true;
-            label4.Font = new Font("Roboto", 8F);
+            label4.Font = new Font("Microsoft Sans Serif", 8F);
             label4.ForeColor = Color.White;
             label4.Location = new Point(137, 490);
             label4.Name = "label4";
-            label4.Size = new Size(117, 13);
+            label4.Size = new Size(110, 13);
             label4.TabIndex = 4;
             label4.Text = "Rafael William Ribeiro";
             // 
@@ -86,11 +86,11 @@
             // 
             label3.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             label3.AutoSize = true;
-            label3.Font = new Font("Roboto", 8F);
+            label3.Font = new Font("Microsoft Sans Serif", 8F);
             label3.ForeColor = Color.White;
             label3.Location = new Point(161, 477);
             label3.Name = "label3";
-            label3.Size = new Size(93, 13);
+            label3.Size = new Size(90, 13);
             label3.TabIndex = 3;
             label3.Text = "Desenvolvido por";
             // 
@@ -98,11 +98,11 @@
             // 
             label2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             label2.AutoSize = true;
-            label2.Font = new Font("Roboto", 16F);
+            label2.Font = new Font("Microsoft Sans Serif", 16F);
             label2.ForeColor = Color.White;
             label2.Location = new Point(133, 210);
             label2.Name = "label2";
-            label2.Size = new Size(121, 27);
+            label2.Size = new Size(125, 26);
             label2.TabIndex = 2;
             label2.Text = "RW Gestão";
             // 
@@ -110,11 +110,11 @@
             // 
             label1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             label1.AutoSize = true;
-            label1.Font = new Font("Roboto", 16F);
+            label1.Font = new Font("Microsoft Sans Serif", 16F);
             label1.ForeColor = Color.White;
             label1.Location = new Point(59, 183);
             label1.Name = "label1";
-            label1.Size = new Size(195, 27);
+            label1.Size = new Size(193, 26);
             label1.TabIndex = 1;
             label1.Text = "Seja bem vindo ao";
             // 
@@ -146,11 +146,11 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Font = new Font("Roboto", 8F);
+            label7.Font = new Font("Microsoft Sans Serif", 8F);
             label7.ForeColor = Color.Silver;
             label7.Location = new Point(9, 490);
             label7.Name = "label7";
-            label7.Size = new Size(165, 13);
+            label7.Size = new Size(153, 13);
             label7.TabIndex = 7;
             label7.Text = "® Todos os direitos reservados";
             // 
@@ -159,7 +159,7 @@
             btnClear.BackColor = SystemColors.Control;
             btnClear.FlatAppearance.BorderSize = 0;
             btnClear.FlatStyle = FlatStyle.Flat;
-            btnClear.Font = new Font("Roboto", 8F);
+            btnClear.Font = new Font("Microsoft Sans Serif", 8F);
             btnClear.ForeColor = Color.FromArgb(41, 128, 185);
             btnClear.Location = new Point(163, 300);
             btnClear.Name = "btnClear";
@@ -174,7 +174,7 @@
             btnLogin.BackColor = Color.FromArgb(41, 128, 185);
             btnLogin.FlatAppearance.BorderSize = 0;
             btnLogin.FlatStyle = FlatStyle.Flat;
-            btnLogin.Font = new Font("Roboto", 10F);
+            btnLogin.Font = new Font("Microsoft Sans Serif", 10F);
             btnLogin.ForeColor = Color.White;
             btnLogin.Location = new Point(9, 300);
             btnLogin.Name = "btnLogin";
@@ -201,14 +201,15 @@
             txtPassword.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             txtPassword.BackColor = SystemColors.Control;
             txtPassword.BorderStyle = BorderStyle.None;
-            txtPassword.Font = new Font("Roboto", 12F);
+            txtPassword.Font = new Font("Microsoft Sans Serif", 12F);
             txtPassword.ForeColor = Color.FromArgb(41, 128, 185);
             txtPassword.Location = new Point(46, 14);
             txtPassword.Name = "txtPassword";
-            txtPassword.Size = new Size(432, 20);
+            txtPassword.Size = new Size(432, 19);
             txtPassword.TabIndex = 2;
             txtPassword.UseSystemPasswordChar = true;
             txtPassword.Click += txtPassword_Click;
+            txtPassword.KeyDown += txtPassword_KeyDown;
             // 
             // iconPassword
             // 
@@ -243,13 +244,14 @@
             txtUser.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             txtUser.BackColor = Color.White;
             txtUser.BorderStyle = BorderStyle.None;
-            txtUser.Font = new Font("Roboto", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtUser.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtUser.ForeColor = Color.FromArgb(41, 128, 185);
             txtUser.Location = new Point(46, 14);
             txtUser.Name = "txtUser";
-            txtUser.Size = new Size(432, 20);
+            txtUser.Size = new Size(432, 19);
             txtUser.TabIndex = 1;
             txtUser.Click += txtUser_Click;
+            txtUser.KeyDown += txtUser_KeyDown;
             // 
             // iconUser
             // 
@@ -271,11 +273,11 @@
             // 
             label5.AutoSize = true;
             label5.BackColor = SystemColors.Control;
-            label5.Font = new Font("Roboto", 16F);
+            label5.Font = new Font("Microsoft Sans Serif", 16F);
             label5.ForeColor = Color.FromArgb(41, 128, 185);
             label5.Location = new Point(37, 143);
             label5.Name = "label5";
-            label5.Size = new Size(248, 27);
+            label5.Size = new Size(238, 26);
             label5.TabIndex = 2;
             label5.Text = "Logue com seu usuário";
             // 
@@ -312,6 +314,7 @@
             ShowIcon = false;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FormLogin";
+            Shown += FormLogin_Shown;
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();

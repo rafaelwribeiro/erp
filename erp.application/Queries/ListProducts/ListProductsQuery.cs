@@ -7,4 +7,5 @@ public class ListProductsQuery : IRequest<IEnumerable<Product>>
 {
     public int Id { get; set; } = 0;
     public string? Name { get; set; } = string.Empty;
+    public string? Barcode { get; set; } = string.Empty;
 }

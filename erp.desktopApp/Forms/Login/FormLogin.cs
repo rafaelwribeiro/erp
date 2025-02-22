@@ -80,4 +80,27 @@ public partial class FormLogin : Form
         txtPassword.Clear();
         txtUser.Focus();
     }
+
+    private void FormLogin_Shown(object sender, EventArgs e)
+    {
+        txtUser.Focus();
+    }
+
+    private void txtUser_KeyDown(object sender, KeyEventArgs e)
+    {
+        if (e.KeyCode == Keys.Enter)
+        {
+            e.SuppressKeyPress = true;
+            this.SelectNextControl((Control)sender, true, true, true, true);            
+        }
+    }
+
+    private void txtPassword_KeyDown(object sender, KeyEventArgs e)
+    {
+        if (e.KeyCode == Keys.Enter)
+        {
+            e.SuppressKeyPress = true;
+            btnLogin_Click(sender, e);            
+        }
+    }
 }

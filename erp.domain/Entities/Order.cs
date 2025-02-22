@@ -37,6 +37,9 @@ public class Order : Entity
     }
     public void AddItem(Product product, int quantity, decimal discount, decimal unitPrice)
     {
+        if (this.Status != OrderStatus.Created)
+            throw new InvalidOperationException("Não é permitido adicionar novos itens neste pedido.");
+
         OrderItem item = new OrderItem
         {
             Order = this,

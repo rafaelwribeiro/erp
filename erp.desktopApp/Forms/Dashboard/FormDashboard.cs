@@ -42,6 +42,7 @@ public partial class FormDashboard : Form
     {
         try
         {
+            button2.Enabled = false;
             //inicia novo pedido
             var newOrderCmd = new NewOrderCommand
             {
@@ -132,6 +133,9 @@ public partial class FormDashboard : Form
         {
             MessageBox.Show($"{ex.Message}\r\n{ex.InnerException}");
         }
-
+        finally
+        {
+            button2.Enabled = true;
+        }
     }
 }
