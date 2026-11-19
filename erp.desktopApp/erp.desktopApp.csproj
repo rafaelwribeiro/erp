@@ -8,6 +8,23 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <!--
+    `dotnet publish` produces a single erp.desktopApp.exe with the .NET runtime
+    inside, so the target machine needs no .NET installed. Only applies when
+    publishing: build and run are unchanged. Trimming and Native AOT are left
+    off because Windows Forms does not support them.
+  -->
+  <PropertyGroup Condition="'$(_IsPublishing)' == 'true'">
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    <SelfContained>true</SelfContained>
+    <PublishSingleFile>true</PublishSingleFile>
+    <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
+    <EnableCompressionInSingleFile>true</EnableCompressionInSingleFile>
+    <DebugType>none</DebugType>
+    <!-- keeps the referenced projects' .pdb files out of the publish folder -->
+    <AllowedReferenceRelatedFileExtensions>none</AllowedReferenceRelatedFileExtensions>
+  </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="FontAwesome.Sharp" Version="6.3.0" />
   </ItemGroup>
