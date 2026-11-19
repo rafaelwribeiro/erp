@@ -58,4 +58,22 @@ internal static class FormExtensions
             }
         }
     }
+
+    private static Icon? _applicationIcon;
+
+    /// <summary>
+    /// Gives a top-level form the icon embedded in the exe (app.ico), so the window
+    /// and the taskbar show the same icon as the file. WinForms does not do this by
+    /// itself: a form without an Icon gets the generic WinForms one.
+    /// </summary>
+    public static void UseApplicationIcon(this Form form)
+    {
+        _applicationIcon ??= Environment.ProcessPath is { } exe ? Icon.ExtractAssociatedIcon(exe) : null;
+        if (_applicationIcon is null)
+            return;
+
+        form.Icon = _applicationIcon;
+        // With ShowIcon off the taskbar falls back to a blank icon, even on a borderless form.
+        form.ShowIcon = true;
+    }
 }

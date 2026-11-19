@@ -11,6 +11,7 @@ public partial class FormLogin : Form
     public FormLogin(IMediator mediator)
     {
         InitializeComponent();
+        this.UseApplicationIcon();
         this.DialogResult = DialogResult.Cancel;
         _mediator = mediator;
         this.AddEnterKeyHandlerToAllControls();
@@ -24,7 +25,11 @@ public partial class FormLogin : Form
 
     private void btnClose_Click(object sender, EventArgs e)
     {
-        Application.Exit();
+        // The login runs as a ShowDialog() before Application.Run, so Application.Exit()
+        // has no message loop to end and the dialog stays open. Closing it as Cancel
+        // makes Program.Main skip the main menu and return, which ends the app.
+        this.DialogResult = DialogResult.Cancel;
+        this.Close();
     }
 
     private void txtUser_Click(object sender, EventArgs e)

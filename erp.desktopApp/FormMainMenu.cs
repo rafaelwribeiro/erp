@@ -7,6 +7,7 @@ using erp.desktopApp.Forms.Login;
 using erp.desktopApp.Forms.Product;
 using System.Windows.Forms;
 using erp.desktopApp.Forms.Order;
+using erp.desktopApp.Extension;
 
 namespace erp.desktopApp;
 
@@ -19,6 +20,7 @@ public partial class FormMainMenu : Form
     public FormMainMenu()
     {
         InitializeComponent();
+        this.UseApplicationIcon();
         leftBorderBtn = new Panel
         {
             Size = new Size(7, 60)
